@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-// import BackgroundTimer from 'react-native-background-timer';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
 
 export default function App() {
@@ -29,7 +28,7 @@ export default function App() {
   }
 
   const handleTimerFinish = () => {
-    // alert("Congrats!")
+    alert("Congrats!")
   }
 
   return (

@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 30,
     color: '#2DB2D3',
-    alignItems: 'right'
+    alignItems: 'center'
   },
   body: {
-    alignItem: 'right',
+    alignItem: 'center',
     fontSize: 20,
 
   },

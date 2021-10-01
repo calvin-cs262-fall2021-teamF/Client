@@ -40,9 +40,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   body: {
-    alignItem: 'center',
-    fontSize: 20,
-
+    alignItems: 'center',
+    fontSize: 20
   },
   picturesize: {
     width: 490,

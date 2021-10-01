@@ -4,9 +4,9 @@ import { Image,StyleSheet, Text, View } from 'react-native';
 export default function About() {
   return (
     <View style={styles.container}>
-      <Text style = {{color:'#36C8EC',fontSize:50,alignItems:'center'}}> 
+      <Text style = {styles.title}> 
       About Us</Text>
-      <Text style={{alignItem:"right",fontSize:20}}>
+      <Text style={styles.mainword}>
         Diente members:Peter Peng, Sean Ebenmelu, Sharon Velpula, Beinan Xu, Richmond Yevudza
       </Text>
       <Text>
@@ -28,4 +28,14 @@ const styles = StyleSheet.create({
     
 
   },
+  title: {
+    color:'#36C8EC',
+    fontSize:50,
+    alignItems:'center'
+  },
+  mainword:{
+    alignItem:"right",
+    fontSize:20
+
+  }
 });

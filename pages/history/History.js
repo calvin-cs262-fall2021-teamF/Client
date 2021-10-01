@@ -8,7 +8,3 @@ export default function HistoryScreen({ navigation }) {
 		</View>
 	);
 }
-
-const styles = StyleSheet.create({
-
-})

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Timer } from 'react-native-stopwatch-timer';
+import homeStyle from './homeStyle'
 
 export default function HomeScreen({ navigation }) {
 	const [timerDuration, setTimerDuration] = useState(120000)
@@ -22,7 +23,7 @@ export default function HomeScreen({ navigation }) {
 	}
 
 	return (
-		<View style={styles.container}>
+		<View style={homeStyle.container}>
 			<Text>Welcome to ToothFlex!</Text>
 
 			<Timer
@@ -36,19 +37,19 @@ export default function HomeScreen({ navigation }) {
 					console.log(time);
 				}} />
 
-			<TouchableOpacity style={styles.roundButton} onPress={toggleTimer}>
+			<TouchableOpacity style={homeStyle.roundButton} onPress={toggleTimer}>
 				<Text>{timerOn ? 'STOP' : 'START'}</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={styles.resetButton} onPress={resetTimer}>
+			<TouchableOpacity style={homeStyle.resetButton} onPress={resetTimer}>
 				<Text>RESET</Text>
 			</TouchableOpacity>
 
-			<TouchableOpacity style={styles.generalButton}
+			<TouchableOpacity style={homeStyle.generalButton}
 				onPress={() => navigation.navigate('History')}
 			>
 				<Text>HISTORY</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={styles.generalButton}
+			<TouchableOpacity style={homeStyle.generalButton}
 				onPress={() => navigation.navigate('About')}
 			>
 				<Text>ABOUT</Text>
@@ -56,40 +57,6 @@ export default function HomeScreen({ navigation }) {
 		</View>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	time: {
-		textAlign: 'center',
-		fontSize: 30,
-	},
-	roundButton: {
-		width: 100,
-		height: 100,
-		justifyContent: 'center',
-		alignItems: 'center',
-		padding: 10,
-		borderRadius: 100,
-		backgroundColor: 'orange'
-	},
-	resetButton: {
-		width: 60,
-		height: 40,
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	generalButton: {
-		width: 100,
-		height: 40,
-		justifyContent: 'center',
-		alignItems: 'center'
-	}
-});
 
 const options = {
 	container: {

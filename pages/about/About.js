@@ -1,15 +1,16 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import aboutStyles from './aboutStyle'
 
 export default function About() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
+    <View style={aboutStyles.container}>
+      <Text style={aboutStyles.title}>
         About Us</Text>
-      <Text style={styles.body}>
+      <Text style={aboutStyles.body}>
         Diente members:Peter Peng, Sean Ebenmelu, Sharon Velpula, Beinan Xu, Richmond Yevudza
       </Text>
-      <Text style={styles.subtitle}>
+      <Text style={aboutStyles.subtitle}>
         Vision statement
       </Text>
       <Text>
@@ -17,34 +18,8 @@ export default function About() {
         Instead of a simple tracker that takes up your whole screen space, why not watch your favorite show or get down with your grooviest song playlist. Along with that, post a comment, race against your buddies on who brushes daily, and enjoy the community that cheers you on to simply brush your teeth.
         Life’s too short to wait for ice cream to melt or worry about others smelling the stench of death. Enjoy a boosted confidence with Toothflex, without having to sell an arm and leg for that expensive tooth repair.
       </Text>
-      <Image source={{ uri: "https://www.grantspassschool.com/wp-content/uploads/2018/10/preschoolkidsbanner2.jpg" }} style={styles.picturesize} />
+      <Image source={{ uri: "https://www.grantspassschool.com/wp-content/uploads/2018/10/preschoolkidsbanner2.jpg" }} style={aboutStyles.picturesize} />
 
     </View>);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffff',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    color: '#36C8EC',
-    fontSize: 50,
-    alignItems: 'center'
-  },
-  subtitle: {
-    fontSize: 30,
-    color: '#2DB2D3',
-    alignItems: 'center'
-  },
-  body: {
-    alignItems: 'center',
-    fontSize: 20
-  },
-  picturesize: {
-    width: 490,
-    height: 215
-  }
-});

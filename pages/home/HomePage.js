@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Timer } from 'react-native-stopwatch-timer';
-import homeStyle from './homeStyle'
+import { homeStyles, options } from './homeStyles'
 
 export default function HomeScreen({ navigation }) {
 	const [timerDuration, setTimerDuration] = useState(120000)
@@ -23,7 +23,7 @@ export default function HomeScreen({ navigation }) {
 	}
 
 	return (
-		<View style={homeStyle.container}>
+		<View style={homeStyles.container}>
 			<Text>Welcome to ToothFlex!</Text>
 
 			<Timer
@@ -37,19 +37,19 @@ export default function HomeScreen({ navigation }) {
 					console.log(time);
 				}} />
 
-			<TouchableOpacity style={homeStyle.roundButton} onPress={toggleTimer}>
+			<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
 				<Text>{timerOn ? 'STOP' : 'START'}</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={homeStyle.resetButton} onPress={resetTimer}>
+			<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
 				<Text>RESET</Text>
 			</TouchableOpacity>
 
-			<TouchableOpacity style={homeStyle.generalButton}
+			<TouchableOpacity style={homeStyles.generalButton}
 				onPress={() => navigation.navigate('History')}
 			>
 				<Text>HISTORY</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={homeStyle.generalButton}
+			<TouchableOpacity style={homeStyles.generalButton}
 				onPress={() => navigation.navigate('About')}
 			>
 				<Text>ABOUT</Text>
@@ -57,17 +57,3 @@ export default function HomeScreen({ navigation }) {
 		</View>
 	);
 }
-
-const options = {
-	container: {
-		padding: 5,
-		borderRadius: 5,
-		width: 200,
-		alignItems: 'center',
-	},
-	text: {
-		fontSize: 25,
-		color: '#000',
-		marginLeft: 7,
-	},
-};

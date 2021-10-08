@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import aboutStyles from './aboutStyle'
+import { aboutStyles } from './aboutStyles'
 
 export default function About() {
   return (

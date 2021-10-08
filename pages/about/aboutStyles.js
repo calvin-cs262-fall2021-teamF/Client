@@ -4,8 +4,10 @@ export const aboutStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffff',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'top',
+    alignItems: 'right',
+    padding:20,
+    
   },
   title: {
     color: '#36C8EC',
@@ -13,7 +15,7 @@ export const aboutStyles = StyleSheet.create({
     alignItems: 'center'
   },
   subtitle: {
-    fontSize: 30,
+    fontSize: 20,
     color: '#2DB2D3',
     alignItems: 'center'
   },
@@ -22,7 +24,7 @@ export const aboutStyles = StyleSheet.create({
     fontSize: 20
   },
   picturesize: {
-    width: 490,
-    height: 215
+    width: 342,
+    height: 150
   }
 });

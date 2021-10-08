@@ -7,7 +7,7 @@ export default function About() {
   return (
     <View style={aboutStyles.container}>
       <Text style={aboutStyles.title}>
-        About</Text>
+        About Us</Text>
       <Text style={aboutStyles.body}>
         This is a team project from cs262 @Calvin Unviersity
       </Text>

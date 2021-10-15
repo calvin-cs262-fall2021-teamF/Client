@@ -6,24 +6,25 @@
 -- Do we need to get the person's gender
 
 
+DROP User IF EXISTS;
+
+
 -- create app schema
-CREATE TABLE person (
+
+CREATE TABLE User (
+  userID int PRIMARY KEY,
   name varchar(30),
   DOB date NOT NULL,
   gender varchar(10)
-);
-
-CREATE TABLE user (
-  userID int PRIMARY KEY,
-  name varchar(30) REFERENCES person(name),
-  DOB date REFERENCES person(DOB),
-  gender varchar(10) REFERENCES person(gender),
   email varchar(50) NOT NULL,
-  password varchar(50)
+  password varchar(50) NOT NULL,
+  profilePIC varchar(100),
+  brushGoal int
 );
 
-CREATE TABLE friend (
-  userID int REFERENCES user(userID)
+CREATE TABLE Friend (
+  ID int REFERENCES user(userID),
+  friendID int
 );
 
 -- I had to break the event node into other tables
@@ -37,7 +38,8 @@ CREATE TABLE pictures (
 
 CREATE TABLE activity (
   eventID int PRIMARY KEY,
-  minAge int,
+  startTime timeStamp,
+  endTime timeStamp
 );
 
 -- Allow users to select data from the tables.

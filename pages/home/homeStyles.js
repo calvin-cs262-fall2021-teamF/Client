@@ -24,7 +24,8 @@ export const homeStyles = StyleSheet.create({
 		width: 60,
 		height: 40,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		marginTop: 20,
 	},
 	generalButton: {
 		width: 100,

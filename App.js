@@ -1,20 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './pages/home/HomePage'
-import HistoryScreen from './pages/history/History';
-import AboutScreen from './pages/about/About';
-
-const Stack = createNativeStackNavigator();
+import Tabs from './navigation/tabs';
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="History" component={HistoryScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
-      </Stack.Navigator>
+      <Tabs />
     </NavigationContainer>
   );
 }

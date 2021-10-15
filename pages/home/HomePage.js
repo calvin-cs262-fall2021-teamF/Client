@@ -34,7 +34,7 @@ export default function HomeScreen({ navigation }) {
 				options={options}
 				handleFinish={handleTimerFinish()}
 				getTime={(time) => {
-					console.log(time);
+					// console.log(time);
 				}} />
 
 			<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
@@ -44,11 +44,6 @@ export default function HomeScreen({ navigation }) {
 				<Text>RESET</Text>
 			</TouchableOpacity>
 
-			<TouchableOpacity style={homeStyles.generalButton}
-				onPress={() => navigation.navigate('History')}
-			>
-				<Text>HISTORY</Text>
-			</TouchableOpacity>
 			<TouchableOpacity style={homeStyles.generalButton}
 				onPress={() => navigation.navigate('About')}
 			>

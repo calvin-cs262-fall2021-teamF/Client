@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View, Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Timer } from 'react-native-stopwatch-timer';
 import { homeStyles, options } from './homeStyles'
@@ -10,7 +10,28 @@ const Stack = createNativeStackNavigator();
 export default function Home({ navigation }) {
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name="Home" component={HomeScreen} />
+			<Stack.Screen name="Home"
+				component={HomeScreen}
+				options={{
+					title: (
+						<View>
+							<TouchableOpacity onPress={() => navigation.navigate('About')}>
+								<Image
+									source={require('../../assets/logo.png')}
+									resizeMode="contain"
+									style={{
+										width: 120,
+										height: 76,
+									}}
+								/>
+							</TouchableOpacity>
+						</View>
+					),
+					headerStyle: {
+						height: 75
+					},
+				}}
+			/>
 			<Stack.Screen name="About" component={AboutScreen} />
 		</Stack.Navigator>
 	);

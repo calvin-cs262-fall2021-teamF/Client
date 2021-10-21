@@ -1,9 +1,8 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../pages/home/HomePage'
+import Home from '../pages/home/HomePage'
 import HistoryScreen from '../pages/history/History';
 import ProfileScreen from '../pages/profile/Profile'
-import AboutScreen from '../pages/about/About';
 import { View, Image } from 'react-native';
 
 const Tab = createBottomTabNavigator();
@@ -17,8 +16,9 @@ const Tabs = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={Home}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
@@ -72,7 +72,6 @@ const Tabs = () => {
           )
         }}
       />
-      {/* <Tab.Screen name="About" component={AboutScreen} /> */}
     </Tab.Navigator>
   )
 }

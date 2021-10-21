@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Timer } from 'react-native-stopwatch-timer';
 import { homeStyles, options } from './homeStyles'
@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
 										height: 76,
 									}}
 								/>
-							</TouchableOpacity>
+							</TouchableOpacity>	
 						</View>
 					),
 					headerStyle: {
@@ -58,25 +58,33 @@ function HomeScreen({ navigation }) {
 
 	return (
 		<View style={homeStyles.container}>
-			<Text>Welcome to ToothFlex!</Text>
+	
+			<ImageBackground
+				style={homeStyles.headerImage}
+				source={ require('../../assets/Pic.jpg') }>
+				<View style={homeStyles.imageContainer}>
+				
+					<Text>Welcome to ToothFlex!</Text>
 
-			<Timer
-				totalDuration={timerDuration}
-				msec
-				start={timerOn}
-				reset={timerReset}
-				options={options}
-				handleFinish={handleTimerFinish()}
-				getTime={(time) => {
-					// console.log(time);
-				}} />
+					<Timer
+						totalDuration={timerDuration}
+						msec
+						start={timerOn}
+						reset={timerReset}
+						options={options}
+						handleFinish={handleTimerFinish()}
+						getTime={(time) => {
+							// console.log(time);
+						}} />
 
-			<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
-				<Text>{timerOn ? 'STOP' : 'START'}</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
-				<Text>RESET</Text>
-			</TouchableOpacity>
+					<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
+						<Text>{timerOn ? 'STOP' : 'START'}</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
+						<Text>RESET</Text>
+					</TouchableOpacity>
+				</View>
+			</ImageBackground>
 		</View>
 	);
 }

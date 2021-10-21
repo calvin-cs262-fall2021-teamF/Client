@@ -6,6 +6,7 @@ export const homeStyles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
+		//backgroundColor: 'aqua'
 	},
 	time: {
 		textAlign: 'center',
@@ -32,6 +33,20 @@ export const homeStyles = StyleSheet.create({
 		height: 40,
 		justifyContent: 'center',
 		alignItems: 'center'
+	},
+
+	headerImage: {
+		width: 1500,
+		height: 1000,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+
+	imageContainer: {
+		flex: 1, 
+		flexDirection: 'column', 
+		justifyContent: 'center', 
+		alignItems: 'center', 
 	}
 });
 

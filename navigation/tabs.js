@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../pages/home/HomePage'
 import HistoryScreen from '../pages/history/History';
 import ProfileScreen from '../pages/profile/Profile'
-import { View, Image } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarCheck, faUser, faHome} from '@fortawesome/fontawesome-free-solid'
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +21,7 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <FontAwesomeIcon icon={["far", "calendar"]} size={25}/>
+            <FontAwesomeIcon icon={faHome} size={"lg"}/>
           )
         }}
       />
@@ -30,7 +30,7 @@ const Tabs = () => {
         component={HistoryScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <FontAwesomeIcon icon={["fal", "coffee"]}/>
+            <FontAwesomeIcon icon={faCalendarCheck} size={"lg"}/>
           )
         }}
       />
@@ -39,7 +39,7 @@ const Tabs = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <FontAwesomeIcon icon="home" />
+            <FontAwesomeIcon icon={faUser} size={"lg"}/>
           )
         }}
       />

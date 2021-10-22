@@ -6,7 +6,7 @@ import{Formik} from 'formik';
 //icons
 import {Octicons} from '@expo/vector-icons';
 
-const Login = () => {
+export const Login = () => {
   return(
     <View style={profileStyles.StyledContainer}>
       <View style={profileStyles.InnerContainer}>
@@ -68,5 +68,3 @@ const MyTextInput = ({label,icon,...props}) =>{
   </View>);
 
 };
-
-export default Login;

@@ -13,13 +13,16 @@ export const homeStyles = StyleSheet.create({
 		fontSize: 30,
 	},
 	roundButton: {
-		width: 100,
-		height: 100,
+		width: 200,
+		height: 200,
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: 10,
 		borderRadius: 100,
 		backgroundColor: 'orange'
+	},
+	roundButtonText: {
+		fontSize: 50
 	},
 	resetButton: {
 		width: 60,
@@ -51,16 +54,18 @@ export const homeStyles = StyleSheet.create({
 });
 
 
-export const options = {
+export const timerOptions = {
 	container: {
-		padding: 5,
+		margin: 20,
 		borderRadius: 5,
 		width: 200,
 		alignItems: 'center',
+		backgroundColor: 'red'
 	},
 	text: {
-		fontSize: 25,
+		fontSize: 50,
 		color: '#000',
-		marginLeft: 7,
+		letterSpacing: 5,
+		fontWeight: 'bold'
 	},
 };

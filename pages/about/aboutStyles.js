@@ -4,10 +4,10 @@ export const aboutStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffff',
-    justifyContent: 'top',
-    alignItems: 'right',
-    padding:20,
-    
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: 20,
+
   },
   title: {
     color: '#36C8EC',

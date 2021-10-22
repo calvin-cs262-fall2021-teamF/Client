@@ -12,7 +12,14 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarShowLabel: false
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 75,
+          backgroundColor: '#fafafa',
+        },
+        headerStyle: {
+          height: 75
+        },
       }}
     >
       <Tab.Screen
@@ -21,6 +28,7 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
+
             <FontAwesomeIcon icon={faHome} size={"lg"}/>
           )
         }}
@@ -30,6 +38,7 @@ const Tabs = () => {
         component={HistoryScreen}
         options={{
           tabBarIcon: ({ focused }) => (
+
             <FontAwesomeIcon icon={faCalendarCheck} size={"lg"}/>
           )
         }}

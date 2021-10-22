@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Timer } from 'react-native-stopwatch-timer';
-import { homeStyles, options } from './homeStyles'
+import StopWatch from '../../utils/StopWatch.js';
+import { homeStyles, timerOptions } from './homeStyles'
 import AboutScreen from '../about/About';
 
 const Stack = createNativeStackNavigator();
@@ -18,10 +18,10 @@ export default function Home({ navigation }) {
 							<TouchableOpacity onPress={() => navigation.navigate('About')}>
 								<Image
 									source={require('../../assets/logo.png')}
-									resizeMode="contain"
+									resizeMode='contain'
 									style={{
-										width: 120,
-										height: 76,
+										width: 135,
+										height: 74,
 									}}
 								/>
 							</TouchableOpacity>	
@@ -66,25 +66,24 @@ function HomeScreen({ navigation }) {
 				
 					<Text>Welcome to ToothFlex!</Text>
 
-					<Timer
-						totalDuration={timerDuration}
-						msec
-						start={timerOn}
-						reset={timerReset}
-						options={options}
-						handleFinish={handleTimerFinish()}
-						getTime={(time) => {
-							// console.log(time);
-						}} />
-
-					<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
-						<Text>{timerOn ? 'STOP' : 'START'}</Text>
-					</TouchableOpacity>
-					<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
-						<Text>RESET</Text>
-					</TouchableOpacity>
+					<StopWatch
+				start={timerOn}
+				reset={timerReset}
+				options={timerOptions}
+				handleFinish={handleTimerFinish()}
+				getTime={(time) => {
+					// console.log(time);
+				}}
+			/>
+			<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
+				<Text style={homeStyles.roundButtonText}>{timerOn ? 'STOP' : 'START'}</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
+				<Text>RESET</Text>
+			</TouchableOpacity>
 				</View>
 			</ImageBackground>
+
 		</View>
 	);
 }

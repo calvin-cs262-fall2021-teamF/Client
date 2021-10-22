@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View, Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import StopWatch from '../../utils/StopWatch';
+import StopWatch from '../../utils/StopWatch.js';
 import { homeStyles, timerOptions } from './homeStyles'
 import AboutScreen from '../about/About';
 
@@ -22,7 +22,6 @@ export default function Home({ navigation }) {
 									style={{
 										width: 135,
 										height: 74,
-										// opacity: 0.0
 									}}
 								/>
 							</TouchableOpacity>

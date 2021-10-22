@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StopWatch from '../../utils/StopWatch.js';
 import { homeStyles, timerOptions } from './homeStyles'
@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
 										height: 74,
 									}}
 								/>
-							</TouchableOpacity>
+							</TouchableOpacity>	
 						</View>
 					),
 					headerStyle: {
@@ -58,7 +58,15 @@ function HomeScreen({ navigation }) {
 
 	return (
 		<View style={homeStyles.container}>
-			<StopWatch
+	
+			<ImageBackground
+				style={homeStyles.headerImage}
+				source={ require('../../assets/Pic.jpg') }>
+				<View style={homeStyles.imageContainer}>
+				
+					<Text>Welcome to ToothFlex!</Text>
+
+					<StopWatch
 				start={timerOn}
 				reset={timerReset}
 				options={timerOptions}
@@ -73,6 +81,9 @@ function HomeScreen({ navigation }) {
 			<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
 				<Text>RESET</Text>
 			</TouchableOpacity>
+				</View>
+			</ImageBackground>
+
 		</View>
 	);
 }

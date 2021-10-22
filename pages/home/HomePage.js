@@ -1,9 +1,43 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Timer } from 'react-native-stopwatch-timer';
-import { homeStyles, options } from './homeStyles'
+import { StyleSheet, Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import StopWatch from '../../utils/StopWatch.js';
+import { homeStyles, timerOptions } from './homeStyles'
+import AboutScreen from '../about/About';
 
-export default function HomeScreen({ navigation }) {
+const Stack = createNativeStackNavigator();
+
+export default function Home({ navigation }) {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen name="Home"
+				component={HomeScreen}
+				options={{
+					title: (
+						<View>
+							<TouchableOpacity onPress={() => navigation.navigate('About')}>
+								<Image
+									source={require('../../assets/logo.png')}
+									resizeMode='contain'
+									style={{
+										width: 135,
+										height: 74,
+									}}
+								/>
+							</TouchableOpacity>	
+						</View>
+					),
+					headerStyle: {
+						height: 75
+					},
+				}}
+			/>
+			<Stack.Screen name="About" component={AboutScreen} />
+		</Stack.Navigator>
+	);
+}
+
+function HomeScreen({ navigation }) {
 	const [timerDuration, setTimerDuration] = useState(120000)
 	const [timerOn, setTimerOn] = useState(false)
 	const [timerReset, setTimerReset] = useState(false)
@@ -24,36 +58,32 @@ export default function HomeScreen({ navigation }) {
 
 	return (
 		<View style={homeStyles.container}>
-			<Text>Welcome to ToothFlex!</Text>
+	
+			<ImageBackground
+				style={homeStyles.headerImage}
+				source={ require('../../assets/Pic.jpg') }>
+				<View style={homeStyles.imageContainer}>
+				
+					<Text>Welcome to ToothFlex!</Text>
 
-			<Timer
-				totalDuration={timerDuration}
-				msec
+					<StopWatch
 				start={timerOn}
 				reset={timerReset}
-				options={options}
+				options={timerOptions}
 				handleFinish={handleTimerFinish()}
 				getTime={(time) => {
-					console.log(time);
-				}} />
-
+					// console.log(time);
+				}}
+			/>
 			<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
-				<Text>{timerOn ? 'STOP' : 'START'}</Text>
+				<Text style={homeStyles.roundButtonText}>{timerOn ? 'STOP' : 'START'}</Text>
 			</TouchableOpacity>
 			<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
 				<Text>RESET</Text>
 			</TouchableOpacity>
+				</View>
+			</ImageBackground>
 
-			<TouchableOpacity style={homeStyles.generalButton}
-				onPress={() => navigation.navigate('History')}
-			>
-				<Text>HISTORY</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={homeStyles.generalButton}
-				onPress={() => navigation.navigate('About')}
-			>
-				<Text>ABOUT</Text>
-			</TouchableOpacity>
 		</View>
 	);
 }

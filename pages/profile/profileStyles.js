@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-
 export const profileStyles = StyleSheet.create({
   title: {
     color: '#36C8EC',
@@ -34,6 +33,3 @@ export const profileStyles = StyleSheet.create({
     marginBottom:10,
   }
 })
-
-
-

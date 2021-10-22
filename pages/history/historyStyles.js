@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const historyStyles = StyleSheet.create({
     h1: {
         fontSize: 30,
-        fontStyle: 'sans-serif',
+        // fontStyle: 'sans-serif',
     },
 
     div: {

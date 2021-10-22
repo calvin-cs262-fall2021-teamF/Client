@@ -11,7 +11,14 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarShowLabel: false
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 75,
+          backgroundColor: '#fafafa',
+        },
+        headerStyle: {
+          height: 75
+        },
       }}
     >
       <Tab.Screen
@@ -25,8 +32,8 @@ const Tabs = () => {
                 source={require('../assets/home.png')}
                 resizeMode="contain"
                 style={{
-                  width: 25,
-                  height: 25,
+                  width: focused ? 40 : 35,
+                  height: focused ? 40 : 35,
                   tintColor: focused ? 'black' : 'gray',
                 }}
               />
@@ -44,8 +51,8 @@ const Tabs = () => {
                 source={require('../assets/history.png')}
                 resizeMode="contain"
                 style={{
-                  width: 25,
-                  height: 25,
+                  width: focused ? 40 : 35,
+                  height: focused ? 40 : 35,
                   tintColor: focused ? 'black' : 'gray',
                 }}
               />
@@ -63,8 +70,8 @@ const Tabs = () => {
                 source={require('../assets/profile.png')}
                 resizeMode="contain"
                 style={{
-                  width: 25,
-                  height: 25,
+                  width: focused ? 40 : 35,
+                  height: focused ? 40 : 35,
                   tintColor: focused ? 'black' : 'gray',
                 }}
               />

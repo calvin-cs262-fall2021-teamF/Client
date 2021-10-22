@@ -4,6 +4,7 @@ import Home from '../pages/home/HomePage'
 import HistoryScreen from '../pages/history/History';
 import ProfileScreen from '../pages/profile/Profile'
 import { View, Image } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,17 +21,7 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Image
-                source={require('../assets/home.png')}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? 'black' : 'gray',
-                }}
-              />
-            </View>
+            <FontAwesomeIcon icon={["far", "calendar"]} size={25}/>
           )
         }}
       />
@@ -39,17 +30,7 @@ const Tabs = () => {
         component={HistoryScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Image
-                source={require('../assets/history.png')}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? 'black' : 'gray',
-                }}
-              />
-            </View>
+            <FontAwesomeIcon icon={["fal", "coffee"]}/>
           )
         }}
       />
@@ -58,17 +39,7 @@ const Tabs = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Image
-                source={require('../assets/profile.png')}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? 'black' : 'gray',
-                }}
-              />
-            </View>
+            <FontAwesomeIcon icon="home" />
           )
         }}
       />

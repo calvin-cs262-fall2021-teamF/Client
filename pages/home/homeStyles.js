@@ -6,7 +6,6 @@ export const homeStyles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
-		//backgroundColor: 'aqua'
 	},
 	time: {
 		textAlign: 'center',
@@ -60,7 +59,7 @@ export const timerOptions = {
 		borderRadius: 5,
 		width: 200,
 		alignItems: 'center',
-		backgroundColor: 'red'
+// 		backgroundColor: 'red'
 	},
 	text: {
 		fontSize: 50,

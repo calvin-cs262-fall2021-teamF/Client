@@ -29,7 +29,7 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
 
-            <FontAwesomeIcon icon={faHome} size={"lg"}/>
+            <FontAwesomeIcon icon={faHome} size={"2x"}/>
           )
         }}
       />
@@ -39,7 +39,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({ focused }) => (
 
-            <FontAwesomeIcon icon={faCalendarCheck} size={"lg"}/>
+            <FontAwesomeIcon icon={faCalendarCheck} size={"2x"}/>
           )
         }}
       />
@@ -48,7 +48,7 @@ const Tabs = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <FontAwesomeIcon icon={faUser} size={"lg"}/>
+            <FontAwesomeIcon icon={faUser} size={"2x"}/>
           )
         }}
       />

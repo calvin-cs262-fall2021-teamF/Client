@@ -22,15 +22,41 @@ export const profileStyles = StyleSheet.create({
     fontWeight: 'bold',
 
   },
-  TextInput: {
-    padding: 15,
-    paddingRight: 55,
-    paddingLeft: 55,
-    borderRadius: 5,
-    fontSize: 16,
-    height: 60,
-    marginVertical: 3,
-    marginBottom: 10,
+  ButtonStyle:{
+    padding:15,
+    backgroundColor:"#36C8EC",
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:5,
+    marginVertical:5,
+    height:60,
+  },
+
+  googleButtonStyle:{
+    padding:15,
+    backgroundColor:"#2FC651",
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:5,
+    marginVertical:5,
+    height:60,
+  },
+  MsgBox:{
+    textAlign:'center',
+    fontSize:13,
+  },
+  TextLink:{
+    color:'#36C8EC',
+  },
+  TextInput:{
+    padding:15,
+    paddingRight:55,
+    paddingLeft:55,
+    borderRadius:5,
+    fontSize:16,
+    height:60,
+    marginVertical:3,
+    marginBottom:10,
   },
   userInfoSection: {
     paddingHorizontal: 30,

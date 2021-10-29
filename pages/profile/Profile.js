@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View, TextInput, Picker } from 'react-native';
 import { profileStyles } from './profileStyles';
-import { Login } from './Login';
+
+import {Login} from './Login';
+import Signup from './Signup';
 import { Avatar, Caption, Title, Switch, Divider } from 'react-native-paper'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 const Stack = createNativeStackNavigator();
 

@@ -59,7 +59,6 @@ export const timerOptions = {
 		borderRadius: 5,
 		width: 200,
 		alignItems: 'center',
-// 		backgroundColor: 'red'
 	},
 	text: {
 		fontSize: 50,

@@ -4,25 +4,25 @@ export const historyStyles = StyleSheet.create({
     
     h: {
         fontSize: 30,
-        fontStyle: 'Roboto',
+        fontFamily: 'Roboto',
         fontWeight: 'bold',
-        color: 'orange'
+        color: '#E26A2C'
     },
 
     div: {
-        backgroundColor: 'mintcream',
+        backgroundColor: 'powderblue',
         padding: 10,
-        width: 600,
+        width: '96%',
         color: 'black',
         fontSize: 17,
-        fontStyle: 'serif',
         fontWeight: 'bold',
         margin: 7,
-        textAlign: "center"
+        // textAlign: "center"
     },
 
-    check: {
-        display: 'flex', 
-        justifyContent: 'flex-end',
+    btn: {
+        backgroundColor: 'steelblue',
+        padding: 10,
+        marginLeft: 10
     },
 })

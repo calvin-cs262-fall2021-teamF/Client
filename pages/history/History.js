@@ -1,7 +1,5 @@
-import { useLinkProps } from '@react-navigation/native';
 import React, {useState} from 'react'
-import { StyleSheet, Text, View } from 'react-native';
-import { ScreenContainer } from 'react-native-screens';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { historyStyles } from './historyStyles';
 
 export default function HistoryScreen({ navigation }) {
@@ -9,34 +7,46 @@ export default function HistoryScreen({ navigation }) {
 
 	return (
 		<View>
-				<Text style={historyStyles.h}> Brushing History</Text>
+			<Text style={historyStyles.h}> Brushing History</Text>
+
 			<Text style={historyStyles.div}>
 				Time 1
-				<button style={{float: 'right'}}> 
-					Check
-				</button>
-				<button style={{float: 'left'}}>
-					Date
-				</button>
-				</Text>
+
+				<TouchableOpacity style={historyStyles.btn}> 
+					<Text> Check </Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity style={historyStyles.btn}>
+					<Text>Date </Text>
+				</TouchableOpacity>
+
+			</Text>
+
 			<Text style={historyStyles.div}>
 				Time 2
-				<button style={{float: 'right'}}> 
-					Check
-				</button>
-				<button style={{float: 'left'}}>
-					Date
-				</button>
+				
+				<TouchableOpacity style={historyStyles.btn}> 
+					<Text> Check </Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity style={historyStyles.btn}>
+					<Text> Date </Text>
+				</TouchableOpacity>
+
 			</Text>
+			
 			<Text style={historyStyles.div}>
-				Time 3
-				<button style={{float: 'right'}}> 
-					Check
-				</button>
-				<button style={{float: 'left'}}>
-					Date
-				</button>
-				</Text>
+				Time 3 
+
+				<TouchableOpacity style={historyStyles.btn}> 
+					<Text> Check </Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity style={historyStyles.btn}>
+					<Text> Date </Text>
+				</TouchableOpacity>
+
+			</Text>
 		</View>
 	);
 }

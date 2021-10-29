@@ -1,10 +1,9 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, Image } from 'react-native';
 import Home from '../pages/home/HomePage'
 import HistoryScreen from '../pages/history/History';
 import ProfileScreen from '../pages/profile/Profile'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarCheck, faUser, faHome} from '@fortawesome/fontawesome-free-solid'
 
 const Tab = createBottomTabNavigator();
 
@@ -28,8 +27,17 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-
-            <FontAwesomeIcon icon={faHome} size={"2x"}/>
+            <View>
+              <Image
+                source={require('../assets/home.png')}
+                resizeMode="contain"
+                style={{
+                  width: focused ? 40 : 35,
+                  height: focused ? 40 : 35,
+                  tintColor: focused ? 'black' : 'gray',
+                }}
+              />
+            </View>
           )
         }}
       />
@@ -38,17 +46,37 @@ const Tabs = () => {
         component={HistoryScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-
-            <FontAwesomeIcon icon={faCalendarCheck} size={"2x"}/>
+            <View>
+              <Image
+                source={require('../assets/history.png')}
+                resizeMode="contain"
+                style={{
+                  width: focused ? 40 : 35,
+                  height: focused ? 40 : 35,
+                  tintColor: focused ? 'black' : 'gray',
+                }}
+              />
+            </View>
           )
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="ProfilePage"
         component={ProfileScreen}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <FontAwesomeIcon icon={faUser} size={"2x"}/>
+            <View>
+              <Image
+                source={require('../assets/profile.png')}
+                resizeMode="contain"
+                style={{
+                  width: focused ? 40 : 35,
+                  height: focused ? 40 : 35,
+                  tintColor: focused ? 'black' : 'gray',
+                }}
+              />
+            </View>
           )
         }}
       />

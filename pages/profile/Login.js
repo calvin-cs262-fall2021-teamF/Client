@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { profileStyles } from './profileStyles';
 import { Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 //formik
-import{Formik} from 'formik';
+import { Formik } from 'formik';
 //icons
 import {Ionicons, Octicons, Fontisto} from '@expo/vector-icons';
 
@@ -11,16 +11,16 @@ export const Login = () => {
   return(
     <View style={profileStyles.StyledContainer}>
       <View style={profileStyles.InnerContainer}>
-          <Text style={profileStyles.title}>
-            Toothflex
-          </Text>
-          <Text style ={profileStyles.SubTitle}>
-            Account Login
-          </Text>
+        <Text style={profileStyles.title}>
+          Toothflex
+        </Text>
+        <Text style={profileStyles.SubTitle}>
+          Account Login
+        </Text>
 
-          <Formik
-          initialValues = {{email:'',password:''}}
-          onSubmit={(values)=> {
+        <Formik
+          initialValues={{ email: '', password: '' }}
+          onSubmit={(values) => {
             console.log(values);
           }}
           >
@@ -71,23 +71,23 @@ export const Login = () => {
                     </TouchableOpacity>
                 </View>
 
+          </styledFormArea>}
 
-              </styledFormArea>}
-          
 
-          </Formik>
+        </Formik>
 
 
       </View>
-    
+
     </View>
 
   );
 }
+
 const MyTextInput = ({label,icon, hidePassword,setHidePassword,...props}) =>{
   return (<View>
     <TouchableOpacity>
-      <Octicons name ={icon} size={30}/>
+      <Octicons name={icon} size={30} />
 
     </TouchableOpacity>
     <Text>{label}</Text>

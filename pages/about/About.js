@@ -27,7 +27,11 @@ export default function About() {
         </Text>
         <Image source={{ uri: "https://www.grantspassschool.com/wp-content/uploads/2018/10/preschoolkidsbanner2.jpg" }} style={aboutStyles.picturesize} />
         <Text>
-          <br />Sean Ebenmelu <br />Peter Peng <br />Sharon Velpula <br />Beinan Xu <br />Richmond Yevudza
+          Peter Peng {"\n"}
+          Sharon Velpula {"\n"}
+          Sean Ebenmelu {"\n"}
+          Beinan Xu {"\n"}
+          Richmond Yevudza
         </Text>
 
 

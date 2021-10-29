@@ -106,7 +106,7 @@ const ProfileScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('editProfile')}>
           <View style={profileStyles.settingBox}>
             <Title>Edit Profile</Title>
-            <Title>></Title>
+            <Title></Title>
           </View>
         </TouchableOpacity>
         <View style={profileStyles.settingBox}>

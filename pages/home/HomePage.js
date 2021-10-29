@@ -53,10 +53,6 @@ function HomeScreen({ navigation }) {
 		setTimerReset(true)
 	}
 
-	const handleTimerFinish = () => {
-		// alert("Time's up!")
-	}
-
 	return (
 		<View style={homeStyles.container}>
 			<ImageBackground
@@ -70,10 +66,6 @@ function HomeScreen({ navigation }) {
 						start={timerOn}
 						reset={timerReset}
 						options={timerOptions}
-						handleFinish={handleTimerFinish()}
-						getTime={(time) => {
-							// console.log(time);
-						}}
 					/>
 					<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
 						<Text style={homeStyles.roundButtonText}>{timerOn ? 'STOP' : 'START'}</Text>

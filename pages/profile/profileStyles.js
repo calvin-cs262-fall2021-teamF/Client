@@ -71,8 +71,8 @@ export const profileStyles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: 'white',
     alignItems: 'center',
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
     paddingTop: 5,
     paddingBottom: 5,
     marginTop: 10,
@@ -80,9 +80,9 @@ export const profileStyles = StyleSheet.create({
   },
   settingPicker: {
     height: 50,
-    width: 50,
+    width: 100,
     borderWidth: 0,
-    textAlign: 'center'
+    marginRight: -20
   },
   editProfileContainer: {
     marginTop: 20,

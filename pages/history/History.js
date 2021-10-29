@@ -9,10 +9,7 @@ export default function HistoryScreen({ navigation }) {
 
 	return (
 		<View>
-			<h1>
-				<Text style={historyStyles.h}> Brushing History
-				</Text>
-			</h1>
+				<Text style={historyStyles.h}> Brushing History</Text>
 			<Text style={historyStyles.div}>
 				Time 1
 				<button style={{float: 'right'}}> 

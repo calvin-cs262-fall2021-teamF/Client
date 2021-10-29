@@ -6,7 +6,7 @@ export const historyStyles = StyleSheet.create({
         fontSize: 30,
         fontStyle: 'Roboto',
         fontWeight: 'bold',
-        color: 'orange',
+        color: 'orange'
     },
 
     div: {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Timer } from 'react-native-stopwatch-timer';
-import { homeStyles, options } from './homeStyles'
+import StopWatch from '../../utils/StopWatch.js';
+import { homeStyles, timerOptions } from './homeStyles'
 import AboutScreen from '../about/About';
 
 const Stack = createNativeStackNavigator();
@@ -10,25 +10,26 @@ const Stack = createNativeStackNavigator();
 export default function Home({ navigation }) {
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name="Home"
+			<Stack.Screen name="HomePage"
 				component={HomeScreen}
+
 				options={{
-					title: (
+					headerTitle: () => (
 						<View>
 							<TouchableOpacity onPress={() => navigation.navigate('About')}>
 								<Image
 									source={require('../../assets/logo.png')}
-									resizeMode="contain"
+									resizeMode='contain'
 									style={{
-										width: 120,
-										height: 76,
+										width: 130,
+										height: 70,
 									}}
 								/>
-							</TouchableOpacity>	
+							</TouchableOpacity>
 						</View>
 					),
 					headerStyle: {
-						height: 75
+						height: 100
 					},
 				}}
 			/>
@@ -58,27 +59,24 @@ function HomeScreen({ navigation }) {
 
 	return (
 		<View style={homeStyles.container}>
-	
 			<ImageBackground
 				style={homeStyles.headerImage}
-				source={ require('../../assets/Pic.jpg') }>
+				source={require('../../assets/Pic.jpg')}>
 				<View style={homeStyles.imageContainer}>
-				
+
 					<Text>Welcome to ToothFlex!</Text>
 
-					<Timer
-						totalDuration={timerDuration}
-						msec
+					<StopWatch
 						start={timerOn}
 						reset={timerReset}
-						options={options}
+						options={timerOptions}
 						handleFinish={handleTimerFinish()}
 						getTime={(time) => {
 							// console.log(time);
-						}} />
-
+						}}
+					/>
 					<TouchableOpacity style={homeStyles.roundButton} onPress={toggleTimer}>
-						<Text>{timerOn ? 'STOP' : 'START'}</Text>
+						<Text style={homeStyles.roundButtonText}>{timerOn ? 'STOP' : 'START'}</Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
 						<Text>RESET</Text>

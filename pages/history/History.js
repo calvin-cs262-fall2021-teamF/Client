@@ -106,45 +106,6 @@ export default function HistoryScreen({ navigation }) {
 					</label>
 				</div>
 			</View>
-			
-			<Text style={historyStyles.div}>
-				Time 1
-
-				<TouchableOpacity style={historyStyles.btn}> 
-					<Text> Check </Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity style={historyStyles.btn}>
-					<Text>Date </Text>
-				</TouchableOpacity>
-
-			</Text>
-
-			<Text style={historyStyles.div}>
-				Time 2
-				
-				<TouchableOpacity style={historyStyles.btn}> 
-					<Text> Check </Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity style={historyStyles.btn}>
-					<Text> Date </Text>
-				</TouchableOpacity>
-
-			</Text>
-			
-			<Text style={historyStyles.div}>
-				Time 3 
-
-				<TouchableOpacity style={historyStyles.btn}> 
-					<Text> Check </Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity style={historyStyles.btn}>
-					<Text> Date </Text>
-				</TouchableOpacity>
-
-			</Text>
 		</View>
 	);
 };

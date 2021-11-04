@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, TouchableOpacity, View, TextInput, Picker } from 'react-native';
 import { profileStyles } from './profileStyles';
 
-import {Login} from './Login';
+import { loginScreen } from './Login';
 import Signup from './Signup';
 import { Avatar, Caption, Title, Switch, Divider } from 'react-native-paper'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,7 +12,10 @@ const Stack = createNativeStackNavigator();
 
 export default function Profile() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Login">
+      <Stack.Screen name="Login"
+        component={loginScreen}
+      />
       <Stack.Screen name="Profile"
         component={ProfileScreen}
         options={{
@@ -32,6 +35,7 @@ export default function Profile() {
           )
         }}
       />
+
     </Stack.Navigator>
   )
 }
@@ -45,7 +49,6 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <View>
-      {/* <Login /> */}
       <View style={profileStyles.userInfoSection}>
         <View style={profileStyles.userInfo}>
           <Avatar.Image

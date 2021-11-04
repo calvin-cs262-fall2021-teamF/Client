@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
+import { Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StopWatch from '../../utils/StopWatch.js';
 import { homeStyles, timerOptions } from './homeStyles'

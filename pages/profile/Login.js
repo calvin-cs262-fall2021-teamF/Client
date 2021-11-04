@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { profileStyles } from './profileStyles';
 import { View, Image } from 'react-native';
-import LoginInput from '../../components/LoginInput'
-import CustomButton from "../../components/CustomButton";
+import LoginInput from "../../components/LoginInput";
+import CustomButton from '../../components/CustomButton';
 
 export const loginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -11,7 +11,11 @@ export const loginScreen = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const onLoginPressed = () => {
-    navigation.navigate('Profile')
+    // navigation.navigate('Profile')
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Profile' }],
+    });
   }
 
   return (

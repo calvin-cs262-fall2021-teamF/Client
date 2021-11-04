@@ -19,6 +19,7 @@ const Tabs = () => {
         headerStyle: {
           height: 75
         },
+        tabBarHideOnKeyboard: true
       }}
     >
       <Tab.Screen

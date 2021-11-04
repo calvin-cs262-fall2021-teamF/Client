@@ -146,6 +146,20 @@ export const profileStyles = StyleSheet.create({
   loginContainer: {
     padding: 20,
     alignItems: 'center',
-
   },
+  buttonWrapper: {
+    padding: 20,
+    alignItems: 'center',
+  },
+  logoutButton: {
+    backgroundColor: '#b23b3b',
+    width: '100%',
+    padding: 15,
+    alignItems: 'center',
+    borderRadius: 5
+  },
+  logoutText: {
+    fontWeight: 'bold',
+    color: 'white'
+  }
 })

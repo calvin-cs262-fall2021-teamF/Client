@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, TextInput, Picker } from 'react-native';
+import { Text, TouchableOpacity, View, TextInput, Picker, ScrollView } from 'react-native';
 import { profileStyles } from './profileStyles';
 
-import {Login} from './Login';
-import Signup from './Signup';
+import { loginScreen } from './Login';
 import { Avatar, Caption, Title, Switch, Divider } from 'react-native-paper'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 
 const Stack = createNativeStackNavigator();
 
 export default function Profile() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Login">
+      <Stack.Screen name="Login"
+        component={loginScreen}
+      />
       <Stack.Screen name="Profile"
         component={ProfileScreen}
         options={{
@@ -21,17 +22,18 @@ export default function Profile() {
           },
         }}
       />
-      <Stack.Screen name="editProfile"
+      <Stack.Screen name="Edit Profile"
         component={editProfileScreen}
         options={{
           headerStyle: {
             height: 75
           },
-          headerTitle: () => (
-            <Text>Edit Profile</Text>
-          )
+          // headerTitle: () => (
+          //   <Text>Edit Profile</Text>
+          // )
         }}
       />
+
     </Stack.Navigator>
   )
 }
@@ -43,9 +45,15 @@ const ProfileScreen = ({ navigation }) => {
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
 
+  const onLogoutPressed = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Login' }],
+    });
+  }
+
   return (
-    <View>
-      {/* <Login /> */}
+    <ScrollView>
       <View style={profileStyles.userInfoSection}>
         <View style={profileStyles.userInfo}>
           <Avatar.Image
@@ -103,10 +111,10 @@ const ProfileScreen = ({ navigation }) => {
           </Picker>
         </View>
         <Title style={profileStyles.settingTitle}>Account</Title>
-        <TouchableOpacity onPress={() => navigation.navigate('editProfile')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Edit Profile')}>
           <View style={profileStyles.settingBox}>
             <Title>Edit Profile</Title>
-            <Title></Title>
+            <Title>></Title>
           </View>
         </TouchableOpacity>
         <View style={profileStyles.settingBox}>
@@ -114,7 +122,15 @@ const ProfileScreen = ({ navigation }) => {
           <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
         </View>
       </View>
-    </View>
+      <View style={profileStyles.buttonWrapper}>
+        <TouchableOpacity
+          onPress={onLogoutPressed}
+          style={profileStyles.logoutButton}
+        >
+          <Text style={profileStyles.logoutText}>Sign Out</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
 
   )
 }
@@ -145,7 +161,6 @@ const editProfileScreen = () => {
         <Title style={profileStyles.textTitle}>Email</Title>
         <TextInput defaultValue="j_doe@gmail.com" style={profileStyles.textInput} />
       </View>
-      {/* <Text>hi</Text> */}
     </View>
   )
 }

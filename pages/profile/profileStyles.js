@@ -22,41 +22,41 @@ export const profileStyles = StyleSheet.create({
     fontWeight: 'bold',
 
   },
-  ButtonStyle:{
-    padding:15,
-    backgroundColor:"#36C8EC",
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:5,
-    marginVertical:5,
-    height:60,
+  ButtonStyle: {
+    padding: 15,
+    backgroundColor: "#36C8EC",
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginVertical: 5,
+    height: 60,
   },
 
-  googleButtonStyle:{
-    padding:15,
-    backgroundColor:"#2FC651",
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:5,
-    marginVertical:5,
-    height:60,
+  googleButtonStyle: {
+    padding: 15,
+    backgroundColor: "#2FC651",
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginVertical: 5,
+    height: 60,
   },
-  MsgBox:{
-    textAlign:'center',
-    fontSize:13,
+  MsgBox: {
+    textAlign: 'center',
+    fontSize: 13,
   },
-  TextLink:{
-    color:'#36C8EC',
+  TextLink: {
+    color: '#36C8EC',
   },
-  TextInput:{
-    padding:15,
-    paddingRight:55,
-    paddingLeft:55,
-    borderRadius:5,
-    fontSize:16,
-    height:60,
-    marginVertical:3,
-    marginBottom:10,
+  TextInput: {
+    padding: 15,
+    paddingRight: 55,
+    paddingLeft: 55,
+    borderRadius: 5,
+    fontSize: 16,
+    height: 60,
+    marginVertical: 3,
+    marginBottom: 10,
   },
   userInfoSection: {
     paddingHorizontal: 30,
@@ -137,5 +137,29 @@ export const profileStyles = StyleSheet.create({
     height: 40,
     paddingLeft: 10,
     color: '#05375a',
+  },
+  loginLogo: {
+    width: '100%',
+    height: 180,
+    marginBottom: -20
+  },
+  loginContainer: {
+    padding: 20,
+    alignItems: 'center',
+  },
+  buttonWrapper: {
+    padding: 20,
+    alignItems: 'center',
+  },
+  logoutButton: {
+    backgroundColor: '#b23b3b',
+    width: '100%',
+    padding: 15,
+    alignItems: 'center',
+    borderRadius: 5
+  },
+  logoutText: {
+    fontWeight: 'bold',
+    color: 'white'
   }
 })

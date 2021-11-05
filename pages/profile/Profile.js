@@ -28,9 +28,6 @@ export default function Profile() {
           headerStyle: {
             height: 75
           },
-          // headerTitle: () => (
-          //   <Text>Edit Profile</Text>
-          // )
         }}
       />
 

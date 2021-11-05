@@ -29,7 +29,7 @@ export default function Home({ navigation }) {
 						</View>
 					),
 					headerStyle: {
-						height: 100
+						height: 75
 					},
 				}}
 			/>

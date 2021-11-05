@@ -1,28 +1,29 @@
 import { StyleSheet } from 'react-native';
 
 export const historyStyles = StyleSheet.create({
-    
-    h: {
-        fontSize: 30,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color: '#E26A2C'
+
+    container: {
+        margin: 18
     },
 
-    div: {
-        backgroundColor: 'powderblue',
-        padding: 10,
-        width: '96%',
-        color: 'black',
-        fontSize: 17,
+    box: {
+        flexDirection: 'row',
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 10,
+        justifyContent: 'space-between',
+        backgroundColor: 'white',
+        alignItems: 'center',
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingTop: 5,
+        paddingBottom: 5,
+        marginTop: 10,
+        height: 60,
+    },
+    date: {
+        fontSize: 24,
         fontWeight: 'bold',
-        margin: 7,
-        // textAlign: "center"
-    },
-
-    btn: {
-        backgroundColor: 'steelblue',
-        padding: 10,
-        marginLeft: 10
-    },
+        marginTop: 20,
+    }
 })

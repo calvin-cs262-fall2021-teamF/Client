@@ -1,52 +1,42 @@
-import React, {useState} from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react'
+import { Text, View } from 'react-native';
 import { historyStyles } from './historyStyles';
+import { Title, Checkbox } from 'react-native-paper'
 
 export default function HistoryScreen({ navigation }) {
-	const [input, setInput] = useState('');
 
 	return (
-		<View>
-			<Text style={historyStyles.h}> Brushing History</Text>
-
-			<Text style={historyStyles.div}>
-				Time 1
-
-				<TouchableOpacity style={historyStyles.btn}> 
-					<Text> Check </Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity style={historyStyles.btn}>
-					<Text>Date </Text>
-				</TouchableOpacity>
-
-			</Text>
-
-			<Text style={historyStyles.div}>
-				Time 2
-				
-				<TouchableOpacity style={historyStyles.btn}> 
-					<Text> Check </Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity style={historyStyles.btn}>
-					<Text> Date </Text>
-				</TouchableOpacity>
-
-			</Text>
-			
-			<Text style={historyStyles.div}>
-				Time 3 
-
-				<TouchableOpacity style={historyStyles.btn}> 
-					<Text> Check </Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity style={historyStyles.btn}>
-					<Text> Date </Text>
-				</TouchableOpacity>
-
-			</Text>
+		<View style={historyStyles.container}>
+			<Text style={historyStyles.date}>11/5/2021</Text>
+			<View style={historyStyles.box}>
+				<Title>Time 1</Title>
+				<Checkbox
+					status={'checked'}
+					disabled={true}
+				/>
+			</View>
+			<View style={historyStyles.box}>
+				<Title>Time 2</Title>
+				<Checkbox
+					status={'unchecked'}
+					disabled={true}
+				/>
+			</View>
+			<Text style={historyStyles.date}>11/4/2021</Text>
+			<View style={historyStyles.box}>
+				<Title>Time 3</Title>
+				<Checkbox
+					status={'unchecked'}
+					disabled={true}
+				/>
+			</View>
+			<View style={historyStyles.box}>
+				<Title>Time 4</Title>
+				<Checkbox
+					status={'checked'}
+					disabled={true}
+				/>
+			</View>
 		</View>
 	);
 }

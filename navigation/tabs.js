@@ -58,7 +58,10 @@ const Tabs = () => {
                 }}
               />
             </View>
-          )
+          ),
+          headerStyle: {
+            height: 118
+          },
         }}
       />
       <Tab.Screen

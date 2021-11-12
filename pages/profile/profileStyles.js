@@ -1,15 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const profileStyles = StyleSheet.create({
   title: {
-    color: '#36C8EC',
+    color: "#36C8EC",
     fontSize: 30,
-    alignItems: 'center'
-
+    alignItems: "center",
   },
   InnerContainer: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
   },
   StyledContainer: {
     flex: 1,
@@ -19,14 +18,13 @@ export const profileStyles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     letterSpacing: 1,
-    fontWeight: 'bold',
-
+    fontWeight: "bold",
   },
   ButtonStyle: {
     padding: 15,
     backgroundColor: "#36C8EC",
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 5,
     marginVertical: 5,
     height: 60,
@@ -35,18 +33,18 @@ export const profileStyles = StyleSheet.create({
   googleButtonStyle: {
     padding: 15,
     backgroundColor: "#2FC651",
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 5,
     marginVertical: 5,
     height: 60,
   },
   MsgBox: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 13,
   },
   TextLink: {
-    color: '#36C8EC',
+    color: "#36C8EC",
   },
   TextInput: {
     padding: 15,
@@ -63,22 +61,22 @@ export const profileStyles = StyleSheet.create({
     marginBottom: 10,
   },
   userInfo: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 25,
   },
   info: {
-    marginLeft: 20
+    marginLeft: 20,
   },
   username: {
     marginTop: 20,
     marginBottom: 8,
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   userId: {
     fontSize: 16,
     lineHeight: 14,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   setting: {
     marginLeft: 20,
@@ -86,17 +84,17 @@ export const profileStyles = StyleSheet.create({
   },
   settingTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 20,
   },
   settingBox: {
-    flexDirection: 'row',
-    borderColor: 'black',
+    flexDirection: "row",
+    borderColor: "black",
     borderWidth: 1,
     borderRadius: 10,
-    justifyContent: 'space-between',
-    backgroundColor: 'white',
-    alignItems: 'center',
+    justifyContent: "space-between",
+    backgroundColor: "white",
+    alignItems: "center",
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 5,
@@ -108,24 +106,24 @@ export const profileStyles = StyleSheet.create({
     height: 50,
     width: 100,
     borderWidth: 0,
-    marginRight: -20
+    marginRight: -20,
   },
   editProfileContainer: {
     margin: 20,
   },
   editAvatar: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   picText: {
     marginTop: 5,
     marginBottom: 5,
     fontSize: 16,
-    color: 'blue'
+    color: "blue",
   },
   inputSpan: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   textTitle: {
     fontSize: 18,
@@ -134,30 +132,30 @@ export const profileStyles = StyleSheet.create({
     width: 240,
     height: 40,
     paddingLeft: 10,
-    color: '#05375a',
+    color: "#05375a",
   },
   loginLogo: {
-    width: '100%',
+    width: "100%",
     height: 180,
-    marginBottom: -20
+    marginBottom: -20,
   },
   loginContainer: {
     padding: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonWrapper: {
     padding: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
   logoutButton: {
-    backgroundColor: '#b23b3b',
-    width: '100%',
+    backgroundColor: "#b23b3b",
+    width: "100%",
     padding: 15,
-    alignItems: 'center',
-    borderRadius: 5
+    alignItems: "center",
+    borderRadius: 5,
   },
   logoutText: {
-    fontWeight: 'bold',
-    color: 'white'
+    fontWeight: "bold",
+    color: "white",
   },
-})
+});

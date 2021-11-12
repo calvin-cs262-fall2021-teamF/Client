@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, Picker, ScrollView } from 'react-native';
-import { profileStyles } from './profileStyles';
-import { loginScreen } from './Login';
-import { editProfileScreen } from './EditProfile';
-import { Avatar, Caption, Title, Switch } from 'react-native-paper'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View, Picker, ScrollView } from "react-native";
+import { profileStyles } from "./profileStyles";
+import { loginScreen } from "./Login";
+import { editProfileScreen } from "./EditProfile";
+import { Avatar, Caption, Title, Switch } from "react-native-paper";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
 export default function Profile() {
   return (
     <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="Login"
-        component={loginScreen}
-      />
-      <Stack.Screen name="Profile"
+      <Stack.Screen name="Login" component={loginScreen} />
+      <Stack.Screen
+        name="Profile"
         component={ProfileScreen}
         options={{
           headerStyle: {
-            height: 75
+            height: 75,
           },
         }}
       />
-      <Stack.Screen name="Edit Profile"
+      <Stack.Screen
+        name="Edit Profile"
         component={editProfileScreen}
         options={{
           headerStyle: {
-            height: 75
+            height: 75,
           },
         }}
       />
     </Stack.Navigator>
-  )
+  );
 }
 
 const ProfileScreen = ({ navigation }) => {
@@ -44,18 +44,15 @@ const ProfileScreen = ({ navigation }) => {
   const onLogoutPressed = () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: 'Login' }],
+      routes: [{ name: "Login" }],
     });
-  }
+  };
 
   return (
     <ScrollView>
       <View style={profileStyles.userInfoSection}>
         <View style={profileStyles.userInfo}>
-          <Avatar.Image
-            source={require('../../assets/fox.jpg')}
-            size={100}
-          />
+          <Avatar.Image source={require("../../assets/fox.jpg")} size={100} />
           <View style={profileStyles.info}>
             <Title style={profileStyles.username}>John Doe</Title>
             <Caption style={profileStyles.userId}>@j_doe</Caption>
@@ -71,7 +68,8 @@ const ProfileScreen = ({ navigation }) => {
             style={profileStyles.settingPicker}
             onValueChange={(itemValue, itemIndex) =>
               setSelectedFrequency(itemValue)
-            }>
+            }
+          >
             <Picker.Item label="1" value="1" />
             <Picker.Item label="2" value="2" />
             <Picker.Item label="3" value="3" />
@@ -85,7 +83,8 @@ const ProfileScreen = ({ navigation }) => {
             style={profileStyles.settingPicker}
             onValueChange={(itemValue, itemIndex) =>
               setSelectedDuration(itemValue)
-            }>
+            }
+          >
             <Picker.Item label="10" value="10" />
             <Picker.Item label="20" value="20" />
             <Picker.Item label="30" value="30" />
@@ -107,7 +106,7 @@ const ProfileScreen = ({ navigation }) => {
           </Picker>
         </View>
         <Title style={profileStyles.settingTitle}>Account</Title>
-        <TouchableOpacity onPress={() => navigation.navigate('Edit Profile')}>
+        <TouchableOpacity onPress={() => navigation.navigate("Edit Profile")}>
           <View style={profileStyles.settingBox}>
             <Title>Edit Profile</Title>
             <Title>></Title>
@@ -127,6 +126,5 @@ const ProfileScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
     </ScrollView>
-
-  )
-}
+  );
+};

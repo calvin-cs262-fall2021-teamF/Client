@@ -57,10 +57,10 @@ export const editProfileScreen = () => {
       </View>
       <Divider />
       <View style={profileStyles.inputSpan}>
-        <Title style={profileStyles.textTitle}>Password</Title>
+        <Title style={profileStyles.textTitle}>New Password</Title>
         <TextInput placeholder="xxxxxxxx" style={profileStyles.textInput} />
       </View>
-      <CustomButton onPress={submitChanges} text="Submit" />
+      <CustomButton style={profileStyles.submitButton} onPress={submitChanges} text="Submit" />
     </View>
   )
 }

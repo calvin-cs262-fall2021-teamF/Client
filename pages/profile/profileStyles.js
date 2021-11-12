@@ -160,7 +160,4 @@ export const profileStyles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white'
   },
-  submitButton: {
-
-  }
 })

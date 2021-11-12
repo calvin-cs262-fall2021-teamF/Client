@@ -5,7 +5,7 @@ import { Avatar, Title, Divider } from 'react-native-paper'
 import * as ImagePicker from 'expo-image-picker';
 import CustomButton from '../../components/CustomButton';
 
-export const editProfileScreen = () => {
+export const editProfileScreen = ({ navigation }) => {
   const [selectedImage, setSelectedImage] = React.useState(null);
   const [imageUri, setImageUri] = React.useState(require('../../assets/fox.jpg'));
 
@@ -27,7 +27,10 @@ export const editProfileScreen = () => {
   };
 
   const submitChanges = () => {
-
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Profile' }],
+    });
   }
 
   return (
@@ -57,10 +60,10 @@ export const editProfileScreen = () => {
       </View>
       <Divider />
       <View style={profileStyles.inputSpan}>
-        <Title style={profileStyles.textTitle}>New Password</Title>
+        <Title style={profileStyles.textTitle}>Password</Title>
         <TextInput placeholder="xxxxxxxx" style={profileStyles.textInput} />
       </View>
-      <CustomButton style={profileStyles.submitButton} onPress={submitChanges} text="Submit" />
+      <CustomButton onPress={submitChanges} text="Submit" />
     </View>
   )
 }

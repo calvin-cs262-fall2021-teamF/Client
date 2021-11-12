@@ -3,6 +3,7 @@ import { profileStyles } from './profileStyles';
 import { View, TouchableOpacity, Text, TextInput, Image } from 'react-native';
 import { Avatar, Title, Divider } from 'react-native-paper'
 import * as ImagePicker from 'expo-image-picker';
+import CustomButton from '../../components/CustomButton';
 
 export const editProfileScreen = () => {
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -22,13 +23,12 @@ export const editProfileScreen = () => {
       return;
     }
 
-    // setSelectedImage({ localUri: pickerResult.uri });
     setImageUri({ uri: pickerResult.uri })
   };
 
-  // if (selectedImage !== null) {
-  //   setImageUri({ uri: selectedImage.localUri })
-  // }
+  const submitChanges = () => {
+
+  }
 
   return (
     <View style={profileStyles.editProfileContainer}>
@@ -60,6 +60,7 @@ export const editProfileScreen = () => {
         <Title style={profileStyles.textTitle}>Password</Title>
         <TextInput placeholder="xxxxxxxx" style={profileStyles.textInput} />
       </View>
+      <CustomButton onPress={submitChanges} text="Submit" />
     </View>
   )
 }

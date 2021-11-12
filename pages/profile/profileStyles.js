@@ -111,7 +111,7 @@ export const profileStyles = StyleSheet.create({
     marginRight: -20
   },
   editProfileContainer: {
-    marginTop: 20,
+    margin: 20,
   },
   editAvatar: {
     alignItems: 'center',
@@ -126,8 +126,6 @@ export const profileStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginLeft: 20,
-    marginRight: 20,
   },
   textTitle: {
     fontSize: 18,
@@ -161,5 +159,5 @@ export const profileStyles = StyleSheet.create({
   logoutText: {
     fontWeight: 'bold',
     color: 'white'
-  }
+  },
 })

@@ -60,7 +60,7 @@ const Tabs = () => {
             </View>
           ),
           headerStyle: {
-            height: 118
+            height: 120
           },
         }}
       />

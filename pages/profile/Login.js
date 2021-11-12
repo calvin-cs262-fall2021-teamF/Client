@@ -11,7 +11,6 @@ export const loginScreen = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const onLoginPressed = () => {
-    // navigation.navigate('Profile')
     navigation.reset({
       index: 0,
       routes: [{ name: 'Profile' }],

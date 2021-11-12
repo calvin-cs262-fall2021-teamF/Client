@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, TextInput, Picker, ScrollView } from 'react-native';
+import { Text, TouchableOpacity, View, Picker, ScrollView } from 'react-native';
 import { profileStyles } from './profileStyles';
-
 import { loginScreen } from './Login';
-import { Avatar, Caption, Title, Switch, Divider } from 'react-native-paper'
+import { editProfileScreen } from './EditProfile';
+import { Avatar, Caption, Title, Switch } from 'react-native-paper'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -30,7 +30,6 @@ export default function Profile() {
           },
         }}
       />
-
     </Stack.Navigator>
   )
 }
@@ -129,35 +128,5 @@ const ProfileScreen = ({ navigation }) => {
       </View>
     </ScrollView>
 
-  )
-}
-
-const editProfileScreen = () => {
-  return (
-    <View style={profileStyles.editProfileContainer}>
-      <TouchableOpacity>
-        <View style={profileStyles.editAvatar}>
-          <Avatar.Image
-            source={require('../../assets/fox.jpg')}
-            size={120}
-          />
-          <Text style={profileStyles.picText}>Change Profile Photo</Text>
-        </View>
-      </TouchableOpacity>
-      <View style={profileStyles.inputSpan}>
-        <Title style={profileStyles.textTitle}>Name</Title>
-        <TextInput defaultValue="John Doe" style={profileStyles.textInput} />
-      </View>
-      <Divider />
-      <View style={profileStyles.inputSpan}>
-        <Title style={profileStyles.textTitle}>Username</Title>
-        <TextInput defaultValue="j_doe" style={profileStyles.textInput} />
-      </View>
-      <Divider />
-      <View style={profileStyles.inputSpan}>
-        <Title style={profileStyles.textTitle}>Email</Title>
-        <TextInput defaultValue="j_doe@gmail.com" style={profileStyles.textInput} />
-      </View>
-    </View>
   )
 }

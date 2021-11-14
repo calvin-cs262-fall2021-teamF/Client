@@ -27,7 +27,9 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: "center",
   },
-  input: {},
-});
+  input: {
+    padding: 10
+  }
+})
 
 export default LoginInput;

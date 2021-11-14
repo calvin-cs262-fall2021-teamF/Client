@@ -5,17 +5,23 @@ import LoginInput from "../../components/LoginInput";
 import CustomButton from "../../components/CustomButton";
 
 export const loginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userInfo, setUserInfo] = useState([]);
 
-  const [hidePassword, setHidePassword] = useState(true);
-
-  const onLoginPressed = () => {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "Profile" }],
-    });
-  };
+  const onLoginPressed = async () => {
+    try {
+      const response = await fetch('https://toothflex-service.herokuapp.com/auth/' + email + '/' + password, { method: 'GET' });
+      const json = await response.json();
+      setUserInfo(json);
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Profile' }],
+      });
+    } catch (error) {
+      alert("Invalid username/password! Please try again.");
+    }
+  }
 
   return (
     <View style={profileStyles.loginContainer}>

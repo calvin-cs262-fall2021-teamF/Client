@@ -1,11 +1,10 @@
 /*
-* This is from an open source project (found at https://github.com/michaeljstevens/react-native-stopwatch-timer/tree/252d08c49362b8c8926fe146409e133dedce0424)
-*/
-import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
-import { formatTimeString } from './utils';
-
+ * This is from an open source project (found at https://github.com/michaeljstevens/react-native-stopwatch-timer/tree/252d08c49362b8c8926fe146409e133dedce0424)
+ */
+import React, { Component } from "react";
+import { Text, View, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
+import { formatTimeString } from "./utils";
 
 class StopWatch extends Component {
   static propTypes = {
@@ -17,7 +16,7 @@ class StopWatch extends Component {
     getTime: PropTypes.func,
     startTime: PropTypes.number,
     getMsecs: PropTypes.func,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -36,16 +35,16 @@ class StopWatch extends Component {
     const width = props.msecs ? 220 : 150;
     this.defaultStyles = {
       container: {
-        backgroundColor: '#000',
+        backgroundColor: "#000",
         padding: 5,
         borderRadius: 5,
         width: width,
       },
       text: {
         fontSize: 30,
-        color: '#FFF',
+        color: "#FFF",
         marginLeft: 7,
-      }
+      },
     };
   }
 
@@ -75,24 +74,28 @@ class StopWatch extends Component {
       let lap = new Date() - this.state.stopTime;
       this.setState({
         stopTime: null,
-        pausedTime: this.state.pausedTime + lap
-      })
+        pausedTime: this.state.pausedTime + lap,
+      });
     }
 
     this.setState({
-      startTime: this.state.elapsed ? new Date() - this.state.elapsed :
-        new Date(), started: true
+      startTime: this.state.elapsed
+        ? new Date() - this.state.elapsed
+        : new Date(),
+      started: true,
     });
 
-    this.interval = this.interval ? this.interval : setInterval(() => {
-      this.setState({ elapsed: new Date() - this.state.startTime });
-    }, 1);
+    this.interval = this.interval
+      ? this.interval
+      : setInterval(() => {
+          this.setState({ elapsed: new Date() - this.state.startTime });
+        }, 1);
   }
 
   stop() {
     if (this.interval) {
       if (this.props.laps) {
-        this.setState({ stopTime: new Date() })
+        this.setState({ stopTime: new Date() });
       }
 
       clearInterval(this.interval);
@@ -107,7 +110,7 @@ class StopWatch extends Component {
       elapsed: startTime || 0,
       startTime: null,
       stopTime: null,
-      pausedTime: null
+      pausedTime: null,
     });
   }
 
@@ -119,14 +122,12 @@ class StopWatch extends Component {
       getTime(formatted);
     }
     if (typeof getMsecs === "function") {
-      getMsecs(now)
+      getMsecs(now);
     }
     return formatted;
   }
 
-
   render() {
-
     const styles = this.props.options ? this.props.options : this.defaultStyles;
 
     return (

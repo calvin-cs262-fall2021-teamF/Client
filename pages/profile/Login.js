@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { profileStyles } from './profileStyles';
-import { View, Image } from 'react-native';
+import { profileStyles } from "./profileStyles";
+import { View, Image } from "react-native";
 import LoginInput from "../../components/LoginInput";
-import CustomButton from '../../components/CustomButton';
+import CustomButton from "../../components/CustomButton";
 
 export const loginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -26,15 +26,11 @@ export const loginScreen = ({ navigation }) => {
   return (
     <View style={profileStyles.loginContainer}>
       <Image
-        source={require('../../assets/logo.png')}
-        resizeMode='contain'
+        source={require("../../assets/logo.png")}
+        resizeMode="contain"
         style={profileStyles.loginLogo}
       />
-      <LoginInput
-        value={email}
-        setValue={setEmail}
-        placeholder="Email"
-      />
+      <LoginInput value={email} setValue={setEmail} placeholder="Email" />
       <LoginInput
         value={password}
         setValue={setPassword}
@@ -44,4 +40,4 @@ export const loginScreen = ({ navigation }) => {
       <CustomButton onPress={onLoginPressed} text="Sign In" />
     </View>
   );
-}
+};

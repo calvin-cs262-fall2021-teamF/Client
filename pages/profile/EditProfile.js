@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import { profileStyles } from './profileStyles';
-import { View, TouchableOpacity, Text, TextInput, Image } from 'react-native';
-import { Avatar, Title, Divider } from 'react-native-paper'
-import * as ImagePicker from 'expo-image-picker';
-import CustomButton from '../../components/CustomButton';
+import { profileStyles } from "./profileStyles";
+import { View, TouchableOpacity, Text, TextInput } from "react-native";
+import { Avatar, Title, Divider } from "react-native-paper";
+import * as ImagePicker from "expo-image-picker";
+import CustomButton from "../../components/CustomButton";
 
 export const editProfileScreen = ({ navigation }) => {
   const [selectedImage, setSelectedImage] = React.useState(null);
-  const [imageUri, setImageUri] = React.useState(require('../../assets/fox.jpg'));
+  const [imageUri, setImageUri] = React.useState(
+    require("../../assets/fox.jpg")
+  );
 
   let openImagePickerAsync = async () => {
-    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    let permissionResult =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
 
     if (permissionResult.granted === false) {
-      alert('Permission to access camera roll is required!');
+      alert("Permission to access camera roll is required!");
       return;
     }
 
@@ -23,24 +26,21 @@ export const editProfileScreen = ({ navigation }) => {
       return;
     }
 
-    setImageUri({ uri: pickerResult.uri })
+    setImageUri({ uri: pickerResult.uri });
   };
 
   const submitChanges = () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: 'Profile' }],
+      routes: [{ name: "Profile" }],
     });
-  }
+  };
 
   return (
     <View style={profileStyles.editProfileContainer}>
       <TouchableOpacity onPress={openImagePickerAsync}>
         <View style={profileStyles.editAvatar}>
-          <Avatar.Image
-            source={imageUri}
-            size={120}
-          />
+          <Avatar.Image source={imageUri} size={120} />
           <Text style={profileStyles.picText}>Change Profile Photo</Text>
         </View>
       </TouchableOpacity>
@@ -56,7 +56,10 @@ export const editProfileScreen = ({ navigation }) => {
       <Divider />
       <View style={profileStyles.inputSpan}>
         <Title style={profileStyles.textTitle}>Email</Title>
-        <TextInput defaultValue="j_doe@gmail.com" style={profileStyles.textInput} />
+        <TextInput
+          defaultValue="j_doe@gmail.com"
+          style={profileStyles.textInput}
+        />
       </View>
       <Divider />
       <View style={profileStyles.inputSpan}>
@@ -65,5 +68,5 @@ export const editProfileScreen = ({ navigation }) => {
       </View>
       <CustomButton onPress={submitChanges} text="Submit" />
     </View>
-  )
-}
+  );
+};

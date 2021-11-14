@@ -9,9 +9,7 @@ function formatTimeString(time, showMsecs) {
 
   let seconds = Math.floor(time / 1000);
   let minutes = Math.floor(time / 60000);
-  // let hours = Math.floor(time / 3600000);
   seconds = seconds - minutes * 60;
-  // minutes = minutes - hours * 60;
   let formatted;
   if (showMsecs) {
     formatted = `0${minutes}:${seconds < 10 ? 0 : ""}${seconds}:${msecs}`;

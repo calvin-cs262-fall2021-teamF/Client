@@ -54,7 +54,7 @@ const ProfileScreen = ({ route, navigation }) => {
 
   useEffect(() => {
     (async () => {
-      fetch('https://toothflex-service.herokuapp.com/users/4')
+      fetch('https://toothflex-service.herokuapp.com/users/' + route.params.id)
         .then((response) => response.json())
         .then((json) => {
           setName(json.name)

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, TouchableOpacity, View, Picker, ScrollView } from "react-native";
 import { profileStyles } from "./profileStyles";
 import { loginScreen } from "./Login";
@@ -34,10 +34,14 @@ export default function Profile() {
   );
 }
 
-const ProfileScreen = ({ navigation }) => {
-  const [selectedFrequency, setSelectedFrequency] = useState(2);
-  const [selectedDuration, setSelectedDuration] = useState(120);
+const ProfileScreen = ({ route, navigation }) => {
+  const [name, setName] = useState();
+  const [username, setUsername] = useState();
+  const [selectedFrequency, setSelectedFrequency] = useState(false);
+  const [selectedDuration, setSelectedDuration] = useState();
   const [isSwitchOn, setIsSwitchOn] = useState(true);
+
+  const [freq, setFreq] = useState("")
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
 
@@ -48,14 +52,27 @@ const ProfileScreen = ({ navigation }) => {
     });
   };
 
+  useEffect(() => {
+    (async () => {
+      fetch('https://toothflex-service.herokuapp.com/users/' + route.params.id)
+        .then((response) => response.json())
+        .then((json) => {
+          setName(json.name)
+          setUsername(json.username)
+          setSelectedFrequency(JSON.stringify(json.freqgoal))
+          setSelectedDuration(JSON.stringify(json.timegoal))
+        })
+    })();
+  }, []);
+
   return (
     <ScrollView>
       <View style={profileStyles.userInfoSection}>
         <View style={profileStyles.userInfo}>
           <Avatar.Image source={require("../../assets/fox.jpg")} size={100} />
           <View style={profileStyles.info}>
-            <Title style={profileStyles.username}>John Doe</Title>
-            <Caption style={profileStyles.userId}>@j_doe</Caption>
+            <Title style={profileStyles.username}>{name}</Title>
+            <Caption style={profileStyles.userId}>{username}</Caption>
           </View>
         </View>
       </View>
@@ -66,9 +83,16 @@ const ProfileScreen = ({ navigation }) => {
           <Picker
             selectedValue={selectedFrequency}
             style={profileStyles.settingPicker}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedFrequency(itemValue)
-            }
+            onValueChange={async (itemValue, itemIndex) => {
+              try {
+                const response = await fetch('https://toothflex-service.herokuapp.com/users/' + route.params.id + '/freq/' + itemValue, { method: 'PUT' });
+                const json = await response.json();
+              } catch (error) {
+                alert("Failed to update! Please try again.");
+              } finally {
+                setSelectedFrequency(itemValue);
+              }
+            }}
           >
             <Picker.Item label="1" value="1" />
             <Picker.Item label="2" value="2" />
@@ -81,9 +105,16 @@ const ProfileScreen = ({ navigation }) => {
           <Picker
             selectedValue={selectedDuration}
             style={profileStyles.settingPicker}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedDuration(itemValue)
-            }
+            onValueChange={async (itemValue, itemIndex) => {
+              try {
+                const response = await fetch('https://toothflex-service.herokuapp.com/users/' + route.params.id + '/time/' + itemValue, { method: 'PUT' });
+                const json = await response.json();
+              } catch (error) {
+                alert("Failed to update! Please try again.");
+              } finally {
+                setSelectedFrequency(itemValue);
+              }
+            }}
           >
             <Picker.Item label="10" value="10" />
             <Picker.Item label="20" value="20" />

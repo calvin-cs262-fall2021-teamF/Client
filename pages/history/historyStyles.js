@@ -2,15 +2,14 @@ import { StyleSheet } from "react-native";
 
 export const historyStyles = StyleSheet.create({
   container: {
-    margin: 18,
+    margin: '2%',
   },
 
   box: {
-    flexDirection: "row",
+    // flexDirection: "row",
     borderColor: "black",
     borderWidth: 1,
     borderRadius: 10,
-    justifyContent: "space-between",
     backgroundColor: "white",
     alignItems: "center",
     paddingLeft: 20,
@@ -18,13 +17,14 @@ export const historyStyles = StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 5,
     marginTop: 10,
-    marginBottom: 3,
     height: 60,
   },
+
   date: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
-    marginTop: 3,
+    color: '#EEEEEE',
+    marginTop: 20,
   },
 
   headerText: {
@@ -55,5 +55,18 @@ export const historyStyles = StyleSheet.create({
 		flexDirection: 'column', 
 		justifyContent: 'center', 
 		alignItems: 'center', 
-	}
+	},
+
+  btnText: {
+    fontSize: 15,
+  },
+
+  detailContainer: {
+    backgroundColor: "#393E46",
+    margin: '5%',
+    borderRadius: 10,
+    flex: 1,
+    flexDirection: "row",
+    padding: '5%',
+  },
 });

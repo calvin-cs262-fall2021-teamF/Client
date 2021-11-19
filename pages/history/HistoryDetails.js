@@ -18,11 +18,9 @@ export default function HistoryDetailsScreen({route}) {
 
     return (
         <View style={historyStyles.detailContainer}>
-            {/* Display the fields of the received movie object. */}
-            {/*<Text>{route.params.brushDate}</Text>*/}
-            {/*<Text>ID: {route.params.duration}</Text>*/}
-            <Text style={historyStyles.date}>Duration: {route.params.duration}</Text>
-            <Text style={historyStyles.date}>{route.params.time} seconds</Text>
+            <Text>{route.params.brushDate}</Text>
+            <Text style={historyStyles.date}>Duration: {route.params.duration} seconds</Text>
+            {/* <Text style={historyStyles.date}>{route.params.time} seconds</Text> */}
         </View>
     );
 }

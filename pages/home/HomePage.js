@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StopWatch from '../../utils/StopWatch.js';
 import { homeStyles, timerOptions } from './homeStyles'
 import AboutScreen from '../about/About';
+import HistoryDetailsScreen from '../history/HistoryDetails.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,7 @@ export default function Home({ navigation }) {
         }}
       />
       <Stack.Screen name="About" component={AboutScreen} />
+      <Stack.Screen name="HistoryDetails" component={HistoryDetailsScreen} />
     </Stack.Navigator>
   );
 }

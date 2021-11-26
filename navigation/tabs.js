@@ -49,7 +49,7 @@ const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/history.png")}
+                source={require("../assets/history-solid.png")}
                 resizeMode="contain"
                 style={{
                   width: focused ? 40 : 35,

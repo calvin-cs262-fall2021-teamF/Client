@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, Image, ImageBackground } from 'react-native';
+import React, { useState, useCallback} from 'react';
+import { Text, Linking, StyleSheet, TouchableOpacity, View, Image, ImageBackground, Modal, Button} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StopWatch from '../../utils/StopWatch.js';
+import {popStyle} from '../../utils/popStyle.js';
 import { homeStyles, timerOptions } from './homeStyles'
 import AboutScreen from '../about/About';
 import HistoryDetailsScreen from '../history/HistoryDetails.js';
@@ -45,6 +46,10 @@ function HomeScreen({ navigation }) {
   const [timerOn, setTimerOn] = useState(false);
   const [timerReset, setTimerReset] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const youtubeURL = 'https://www.youtube.com/';
+  const spotifyURL = "android-app://spotify:album:0sNOF9WDwhWunNAHPD3Baj";
+
   const toggleTimer = () => {
     setTimerOn(!timerOn);
     setTimerReset(false);
@@ -53,6 +58,28 @@ function HomeScreen({ navigation }) {
   const resetTimer = () => {
     setTimerOn(false);
     setTimerReset(true);
+  };
+
+  const stuffCombined = () =>{
+    toggleTimer();
+    setModalOpen(true);
+  };
+
+  const OpenURLButton = ({ url, children}) => {
+    const handlePress = useCallback(async () => {
+      // Checking if the link is supported for links with custom URL scheme.
+      const supported = await Linking.canOpenURL(url);
+  
+      if (supported) {
+        // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+        // by some browser in the mobile
+        await Linking.openURL(url);
+      } else {
+        Alert.alert(`Don't know how to open this URL: ${url}`);
+      }
+    }, [url]);
+  
+    return <Button title={children} onPress={handlePress} style={{width: 130, height: 70, }} />;
   };
 
   return (
@@ -71,7 +98,7 @@ function HomeScreen({ navigation }) {
           />
           <TouchableOpacity
             style={homeStyles.roundButton}
-            onPress={toggleTimer}
+            onPress={stuffCombined}
           >
             <Text style={homeStyles.roundButtonText}>
               {timerOn ? "STOP" : "START"}
@@ -82,6 +109,40 @@ function HomeScreen({ navigation }) {
           </TouchableOpacity>
         </View>
       </ImageBackground>
+      <View>
+        <Modal transparent={true} visible={modalOpen} animationType='slide'>
+          <View style={styles.container}>
+            <View style={popStyle.box}>
+            <OpenURLButton url={youtubeURL}>
+              YouTube
+            </OpenURLButton>
+            <OpenURLButton url={spotifyURL}>
+              Spotify
+            </OpenURLButton>
+            </View>
+            <TouchableOpacity
+                onPress={() => setModalOpen(false)}
+                style={styles.modalToggle}
+              >
+                <Text>CLOSE</Text>
+            </TouchableOpacity>
+          </View>
+        </Modal>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({ 
+  container: {
+    padding: '10%',
+    backgroundColor: '#000000aa',
+    flex: 1,
+  },
+  
+  modalToggle: {
+    padding: 10,
+    borderRadius: 10,
+    alignSelf: 'center',
+  },
+})

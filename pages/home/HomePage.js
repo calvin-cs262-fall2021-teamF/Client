@@ -119,13 +119,13 @@ function HomeScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   container: {
     padding: '10%',
     backgroundColor: '#000000aa',
     flex: 1,
   },
-  
+
   modalToggle: {
     padding: 10,
     borderRadius: 10,

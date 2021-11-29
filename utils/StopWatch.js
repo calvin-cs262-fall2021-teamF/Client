@@ -97,7 +97,26 @@ class StopWatch extends Component {
       if (this.props.laps) {
         this.setState({ stopTime: new Date() });
       }
+      postLogs = async () => {
+        await fetch('https://testing-tooth-service.herokuapp.com/brushLogs', {
+          method: 'POST',
+          headers: {
+             Accept: 'application/json',
+             'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            // 'id': id,
+            'brushdate': new Date(),
+            'duration': this.formatTime(),
+          })
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+     }
 
+      postLogs();
+      console.log(this.formatTime())
       clearInterval(this.interval);
       this.interval = null;
     }

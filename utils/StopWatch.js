@@ -6,6 +6,9 @@ import { Text, View, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import { formatTimeString } from "./utils";
 
+let duration = 0;
+
+
 class StopWatch extends Component {
   static propTypes = {
     start: PropTypes.bool,
@@ -97,7 +100,16 @@ class StopWatch extends Component {
       if (this.props.laps) {
         this.setState({ stopTime: new Date() });
       }
+      duration = this.interval;
 
+      try{
+
+
+      const response = await fetch("http:")
+      const json = await response.json();
+      return json;
+
+    } catch (error) {console.error(error);}
       clearInterval(this.interval);
       this.interval = null;
     }

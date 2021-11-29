@@ -57,6 +57,10 @@ function HomeScreen({ navigation }) {
   const youtubeURL = 'https://www.youtube.com/';
   const spotifyURL = "https://urlgeni.us/spotify/hom3";
 
+  const [ID, setID] = useState();
+  const [userId, setUserID] = useState();
+  let duration = 0;
+
   const toggleTimer = () => {
     setTimerOn(!timerOn);
     setTimerReset(false);
@@ -67,9 +71,29 @@ function HomeScreen({ navigation }) {
     setTimerReset(true);
   };
 
-  const stuffCombined = () =>{
+  const postLogs = async () => {
+    await fetch('https://testing-tooth-service.herokuapp.com/brushLogs', {
+      method: 'POST',
+      headers: {
+         Accept: 'application/json',
+         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'id': ID,
+        'userid': userId,
+        'brushdate': new Date(),
+        'duration': duration,
+      })
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+  }
+
+  const combinedFunction = () =>{
     toggleTimer();
     setModalOpen(true);
+    postLogs();
   };
 
   return (
@@ -88,7 +112,7 @@ function HomeScreen({ navigation }) {
           />
           <TouchableOpacity
             style={homeStyles.roundButton}
-            onPress={stuffCombined}
+            onPress={combinedFunction}
           >
             <Text style={homeStyles.roundButtonText}>
               {timerOn ? "STOP" : "START"}

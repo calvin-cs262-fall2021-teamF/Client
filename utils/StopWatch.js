@@ -6,6 +6,10 @@ import { Text, View, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import { formatTimeString } from "./utils";
 
+let brushDur = 0
+let ID = 4
+let userId = 0
+
 class StopWatch extends Component {
   static propTypes = {
     start: PropTypes.bool,
@@ -97,26 +101,7 @@ class StopWatch extends Component {
       if (this.props.laps) {
         this.setState({ stopTime: new Date() });
       }
-      postLogs = async () => {
-        await fetch('https://testing-tooth-service.herokuapp.com/brushLogs', {
-          method: 'POST',
-          headers: {
-             Accept: 'application/json',
-             'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            // 'id': id,
-            'brushdate': new Date(),
-            'duration': this.formatTime(),
-          })
-        })
-        .catch((error) => {
-          console.error(error);
-        })
-     }
 
-      postLogs();
-      console.log(this.formatTime())
       clearInterval(this.interval);
       this.interval = null;
     }

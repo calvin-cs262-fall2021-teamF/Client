@@ -8,7 +8,7 @@ export default function HistoryScreen({route, navigation }) {
 
   const getBrushes = async () => {
      try {
-      const response = await fetch('https://toothflex-service.herokuapp.com/brushLogs');
+      const response = await fetch('https://testing-tooth-service.herokuapp.com/brushLogs');
       const json = await response.json();
       setData(json);
     } catch (error) {

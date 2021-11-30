@@ -6,6 +6,8 @@ import { Text, View, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import { formatTimeString } from "./utils";
 
+var brushDur = ''
+
 class StopWatch extends Component {
   static propTypes = {
     start: PropTypes.bool,
@@ -129,13 +131,16 @@ class StopWatch extends Component {
 
   render() {
     const styles = this.props.options ? this.props.options : this.defaultStyles;
+    brushDur = this.formatTime();
 
     return (
       <View ref="stopwatch" style={styles.container}>
         <Text style={styles.text}>{this.formatTime()}</Text>
+
       </View>
+
     );
   }
 }
 
-export default StopWatch;
+export {StopWatch, brushDur};

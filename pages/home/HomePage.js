@@ -1,23 +1,23 @@
-import React, {useState} from 'react';
-import {Text, StyleSheet, TouchableOpacity, View, Image, ImageBackground, Modal} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React, { useState } from 'react';
+import { Text, StyleSheet, TouchableOpacity, View, Image, ImageBackground, Modal } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import {HeaderButton} from 'react-navigation'; ask the prof how to configure back button
-import {StopWatch, brushDur} from '../../utils/StopWatch.js';
+import { StopWatch, brushDur } from '../../utils/StopWatch.js';
 // brushDur needs to read from StopWatch
 
-import {popStyle} from '../../utils/popStyle.js';
-import {homeStyles, timerOptions} from './homeStyles'
+import { popStyle } from '../../utils/popStyle.js';
+import { homeStyles, timerOptions } from './homeStyles'
 import AboutScreen from '../about/About';
 import HistoryDetailsScreen from '../history/HistoryDetails.js';
-import {SpotifyButton} from '../../buttons/SpotifyBTN.js';
-import {YouTubeButton} from '../../buttons/YouTubeBTN.js';
+import { SpotifyButton } from '../../buttons/SpotifyBTN.js';
+import { YouTubeButton } from '../../buttons/YouTubeBTN.js';
 
 // import { AboutButton } from '../../buttons/AboutBTN.js';
 // import { MainPop } from '../../buttons/MainPopUp.js';
 
 const Stack = createNativeStackNavigator();
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -43,8 +43,8 @@ export default function Home({navigation}) {
                     },
                 }}
             />
-            <Stack.Screen name="About" component={AboutScreen}/>
-            <Stack.Screen name="HistoryDetails" component={HistoryDetailsScreen}/>
+            <Stack.Screen name="About" component={AboutScreen} />
+            <Stack.Screen name="HistoryDetails" component={HistoryDetailsScreen} />
         </Stack.Navigator>
     );
 }
@@ -82,7 +82,7 @@ function HomeScreen() {
         try {
             const requestOptions = {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     'id': id,
                     'userid': userId,
@@ -104,8 +104,8 @@ function HomeScreen() {
 
     const combinedFunction = () => {
         toggleTimer();
-        setModalOpen(true);
-        {timerOn ? postLogs() : null}
+        { timerOn ? setModalOpen(false) : setModalOpen(true) }
+        { timerOn ? postLogs() : null }
     };
 
     return (
@@ -139,8 +139,8 @@ function HomeScreen() {
                 <Modal transparent={true} visible={modalOpen} animationType='slide'>
                     <View style={styles.container}>
                         <View style={popStyle.box}>
-                            <YouTubeButton url={youtubeURL}/>
-                            <SpotifyButton url={spotifyURL}/>
+                            <YouTubeButton url={youtubeURL} />
+                            <SpotifyButton url={spotifyURL} />
                         </View>
                         <TouchableOpacity
                             onPress={() => setModalOpen(false)}

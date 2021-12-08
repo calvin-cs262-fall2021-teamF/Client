@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, TouchableOpacity, View, Image, ImageBackground, Modal } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity, View, Image, ImageBackground, Modal,Button } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import {HeaderButton} from 'react-navigation'; ask the prof how to configure back button
 import { StopWatch, brushDur } from '../../utils/StopWatch.js';
@@ -14,6 +14,7 @@ import { YouTubeButton } from '../../buttons/YouTubeBTN.js';
 
 // import { AboutButton } from '../../buttons/AboutBTN.js';
 // import { MainPop } from '../../buttons/MainPopUp.js';
+import {Audio }from 'expo-av';
 
 const Stack = createNativeStackNavigator();
 
@@ -108,6 +109,25 @@ function HomeScreen() {
         { timerOn ? postLogs() : null }
     };
 
+    const [sound,setSound] = React.useState();
+    async function playSound(){
+        console.log('Loading Sound');
+        const {sound} = await Audio.Sound.createAsync(
+            require('../home/music.mp3')
+        );
+        setSound(sound);
+        console.log('Playing Sound');
+        await sound.playAsync();
+    }
+
+    React.useEffect(() =>{
+        return sound
+        ?() => {
+            console.log('Unloading Sound');
+            sound.unloadAsync();}
+        : undefined;
+    },[sound]);
+
     return (
         <View style={homeStyles.container}>
             <ImageBackground
@@ -133,6 +153,10 @@ function HomeScreen() {
                     <TouchableOpacity style={homeStyles.resetButton} onPress={resetTimer}>
                         <Text>RESET</Text>
                     </TouchableOpacity>
+                    <View>
+                        <Button title="Play Sound" onPress={playSound}/>
+                    </View>
+
                 </View>
             </ImageBackground>
             <View>

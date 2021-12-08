@@ -35,13 +35,14 @@ export default function Profile() {
 }
 
 const ProfileScreen = ({ route, navigation }) => {
+  const [id, setId] = useState();
   const [name, setName] = useState();
   const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
   const [selectedFrequency, setSelectedFrequency] = useState(false);
   const [selectedDuration, setSelectedDuration] = useState();
   const [isSwitchOn, setIsSwitchOn] = useState(true);
-
-  const [freq, setFreq] = useState("")
+  const [image, setImage] = useState();
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
 
@@ -57,10 +58,13 @@ const ProfileScreen = ({ route, navigation }) => {
       fetch('https://toothflex-service.herokuapp.com/users/' + route.params.id)
         .then((response) => response.json())
         .then((json) => {
+          setId(json.id)
           setName(json.name)
           setUsername(json.username)
+          setEmail(json.email)
           setSelectedFrequency(JSON.stringify(json.freqgoal))
           setSelectedDuration(JSON.stringify(json.timegoal))
+          setImage(route.params.uri)
         })
     })();
   }, []);
@@ -69,7 +73,7 @@ const ProfileScreen = ({ route, navigation }) => {
     <ScrollView>
       <View style={profileStyles.userInfoSection}>
         <View style={profileStyles.userInfo}>
-          <Avatar.Image source={require("../../assets/fox.jpg")} size={100} />
+          <Avatar.Image source={image} size={100} />
           <View style={profileStyles.info}>
             <Title style={profileStyles.username}>{name}</Title>
             <Caption style={profileStyles.userId}>{username}</Caption>
@@ -137,7 +141,12 @@ const ProfileScreen = ({ route, navigation }) => {
           </Picker>
         </View>
         <Title style={profileStyles.settingTitle}>Account</Title>
-        <TouchableOpacity onPress={() => navigation.navigate("Edit Profile")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Edit Profile", {
+          id: id,
+          name: name,
+          username: username,
+          email: email
+        })}>
           <View style={profileStyles.settingBox}>
             <Title>Edit Profile</Title>
             <Title>></Title>

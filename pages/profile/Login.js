@@ -16,7 +16,12 @@ export const loginScreen = ({ navigation }) => {
       const json = await response.json();
       navigation.reset({
         index: 0,
-        routes: [{ name: 'Profile', params: json }],
+        routes: [{
+          name: 'Profile', params: {
+            id: json.id,
+            uri: require("../../assets/fox.jpg")
+          }
+        }],
       });
     } catch (error) {
       alert("Invalid username/password! Please try again.");

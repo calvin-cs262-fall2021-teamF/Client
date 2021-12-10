@@ -1,45 +1,77 @@
-import React, { useState, useEffect } from "react";
-import { ActivityIndicator, Text, View, TouchableOpacity, FlatList} from "react-native";
+import React, { useState, useContext, useEffect } from "react";
+import { ActivityIndicator, Text, View, FlatList, ScrollView } from "react-native";
 import { historyStyles } from "./historyStyles";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HelpButton from '../../components/HelpButton';
+import { LoginContext } from "../../Context/loginContext";
 
-export default function HistoryScreen({route, navigation }) {
+const Stack = createNativeStackNavigator();
+
+export default function History() {
+  return (
+    <Stack.Navigator initialRouteName="History">
+      <Stack.Screen
+        name="History"
+        component={HistoryScreen}
+        options={{
+          headerTitle: () => (
+            <View style={historyStyles.header}>
+              <Text style={{ fontSize: 18 }}>History</Text>
+              <HelpButton text='hello' />
+            </View>
+          ),
+          headerStyle: {
+            height: 75,
+          },
+        }}
+      />
+    </Stack.Navigator>
+  )
+}
+
+const HistoryScreen = ({ route, navigation }) => {
+  const { isLoggedIn, userId } = useContext(LoginContext);
+
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  const getBrushes = async () => {
-     try {
-      const response = await fetch('https://testing-tooth-service.herokuapp.com/brushLogs');
-      const json = await response.json();
-      setData(json);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
+  const getHistory = async () => {
+    if (isLoggedIn) {
+      try {
+        const response = await fetch('https://toothflex-service.herokuapp.com/logs/' + userId, { method: 'GET' });
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     }
   }
 
   useEffect(() => {
-    getBrushes();
-  }, []);
+    getHistory();
+  })
 
   return (
-    
-      <View style={historyStyles.container}>
-          <Text style={historyStyles.headerText}> Brushing History </Text>
-          <Text style={historyStyles.subtitleText}> "You don't have to brush all your teeth, just the ones you want to keep" </Text>
-          {/* if isLoading is true then render the objects of the link into readable text */}
-          {isLoading ? <ActivityIndicator/> : (
-              <FlatList
-                  data={data}
-                  renderItem={({item}) => (
-                      <TouchableOpacity style={historyStyles.box} onPress={() => navigation.navigate('HistoryDetails', item)}>
-                          <Text style={historyStyles.btnText}>Brush Log {item.id}</Text>
-    
-                      </TouchableOpacity>
-                  )}
-              />
-
-          )}
-      </View>
+    <ScrollView style={historyStyles.container}>
+      <Text style={historyStyles.headerText}> Brushing History </Text>
+      <Text style={historyStyles.subtitleText}> "You don't have to brush all your teeth, just the ones you want to keep" </Text>
+      {isLoggedIn ? (
+        isLoading ? <ActivityIndicator /> :
+          <FlatList
+            data={data}
+            keyExtractor={({ id }, index) => id}
+            renderItem={({ item }) => (
+              <View style={historyStyles.logBox}>
+                <Text style={{ fontSize: 18 }}>{String(item.brushdate).slice(0, 10)}  {String(item.brushdate).slice(11, 16)}</Text>
+                <Text style={{ fontSize: 18 }}>{item.duration}s</Text>
+              </View>
+            )}
+          />
+      ) : (
+        <Text style={{ margin: 20, fontSize: 18 }}>Log in to see your brushing history...</Text>
+      )}
+    </ScrollView>
   );
 }

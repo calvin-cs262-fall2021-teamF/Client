@@ -2,11 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const historyStyles = StyleSheet.create({
   container: {
-    margin: '2%',
+    margin: 20,
   },
 
   box: {
-    // flexDirection: "row",
     borderColor: "black",
     borderWidth: 1,
     borderRadius: 10,
@@ -28,7 +27,7 @@ export const historyStyles = StyleSheet.create({
   },
 
   headerText: {
-    fontSize: 25, 
+    fontSize: 25,
     textAlign: "center",
     color: "black",
     marginTop: 5,
@@ -36,26 +35,26 @@ export const historyStyles = StyleSheet.create({
   },
 
   subtitleText: {
-    fontSize: 15, 
+    fontSize: 15,
     textAlign: "center",
     color: "black",
     marginTop: 1,
     marginBottom: 10,
-  }, 
+  },
 
   headerImage: {
-		width: 1500,
-		height: 1000,
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
+    width: 1500,
+    height: 1000,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
   imageContainer: {
-		flex: 1, 
-		flexDirection: 'column', 
-		justifyContent: 'center', 
-		alignItems: 'center', 
-	},
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
   btnText: {
     fontSize: 15,
@@ -68,5 +67,28 @@ export const historyStyles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     padding: '5%',
+  },
+
+  header: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+
+  logBox: {
+    flexDirection: "row",
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 10,
+    justifyContent: "space-between",
+    backgroundColor: "white",
+    alignItems: "center",
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 5,
+    paddingBottom: 5,
+    marginTop: 10,
+    height: 60,
   },
 });

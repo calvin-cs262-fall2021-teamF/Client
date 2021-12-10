@@ -7,14 +7,14 @@
 
 /** package imports */
 import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 
 /** stylesheet import */
-import {historyStyles} from './historyStyles';
+import { historyStyles } from './historyStyles';
 
 // function handles the code for the Details Screen
 
-export default function HistoryDetailsScreen({route}) {
+export default function HistoryDetailsScreen({ route }) {
     let a_Date = String(route.params.brushdate).slice(0, 10);
     return (
         <View style={historyStyles.detailContainer}>

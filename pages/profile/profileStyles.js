@@ -6,6 +6,12 @@ export const profileStyles = StyleSheet.create({
     fontSize: 30,
     alignItems: "center",
   },
+  header: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
   InnerContainer: {
     flex: 1,
     alignItems: "center",

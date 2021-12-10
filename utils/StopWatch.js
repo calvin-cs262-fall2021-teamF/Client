@@ -6,7 +6,7 @@ import { Text, View, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 import { formatTimeString } from "./utils";
 
-var brushDur = ''
+let duration;
 
 class StopWatch extends Component {
   static propTypes = {
@@ -90,8 +90,8 @@ class StopWatch extends Component {
     this.interval = this.interval
       ? this.interval
       : setInterval(() => {
-          this.setState({ elapsed: new Date() - this.state.startTime });
-        }, 1);
+        this.setState({ elapsed: new Date() - this.state.startTime });
+      }, 1);
   }
 
   stop() {
@@ -120,6 +120,7 @@ class StopWatch extends Component {
     const { getTime, getMsecs, msecs } = this.props;
     const now = this.state.elapsed;
     const formatted = formatTimeString(now, msecs);
+    duration = Math.floor(now / 1000);
     if (typeof getTime === "function") {
       getTime(formatted);
     }
@@ -131,7 +132,7 @@ class StopWatch extends Component {
 
   render() {
     const styles = this.props.options ? this.props.options : this.defaultStyles;
-    brushDur = this.formatTime();
+
 
     return (
       <View ref="stopwatch" style={styles.container}>
@@ -143,4 +144,4 @@ class StopWatch extends Component {
   }
 }
 
-export {StopWatch, brushDur};
+export { StopWatch, duration };

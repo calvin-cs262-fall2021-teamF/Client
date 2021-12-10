@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { profileStyles } from "./profileStyles";
 import { View, Image, TouchableOpacity, Text } from "react-native";
 import LoginInput from "../../components/LoginInput";
 import { ActivityIndicator } from "react-native-paper";
+import { LoginContext } from "../../Context/loginContext";
 
 export const loginScreen = ({ navigation }) => {
+  const { setIsLoggedIn, setUserId } = useContext(LoginContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
@@ -14,6 +17,7 @@ export const loginScreen = ({ navigation }) => {
       setLoading(true);
       const response = await fetch('https://toothflex-service.herokuapp.com/auth/' + email + '/' + password, { method: 'GET' });
       const json = await response.json();
+      setUserId(json.id);
       navigation.reset({
         index: 0,
         routes: [{
@@ -26,6 +30,7 @@ export const loginScreen = ({ navigation }) => {
     } catch (error) {
       alert("Invalid username/password! Please try again.");
     } finally {
+      setIsLoggedIn(true);
       setLoading(false);
     }
   }

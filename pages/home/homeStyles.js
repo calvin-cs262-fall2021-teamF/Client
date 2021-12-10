@@ -45,10 +45,29 @@ export const homeStyles = StyleSheet.create({
 	},
 
 	imageContainer: {
-		flex: 1, 
-		flexDirection: 'column', 
-		justifyContent: 'center', 
-		alignItems: 'center', 
+		flex: 1,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+
+	modalContainer: {
+		padding: '10%',
+		backgroundColor: '#000000aa',
+		flex: 1,
+	},
+
+	modalToggle: {
+		padding: 10,
+		borderRadius: 10,
+		alignSelf: 'center',
+	},
+
+	header: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center'
 	}
 });
 

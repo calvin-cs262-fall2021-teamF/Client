@@ -2,12 +2,14 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Image } from "react-native";
 import Home from "../pages/home/HomePage";
-import HistoryScreen from "../pages/history/History";
-import ProfileScreen from "../pages/profile/Profile";
+import History from "../pages/history/History";
+import Profile from "../pages/profile/Profile";
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
+  // const [isLoggedIn, setisLoggedIn] = useState(false);
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -43,9 +45,10 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="History"
-        component={HistoryScreen}
+        name="HistoryPage"
+        component={History}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
@@ -59,14 +62,11 @@ const Tabs = () => {
               />
             </View>
           ),
-          headerStyle: {
-            height: 120,
-          },
         }}
       />
       <Tab.Screen
         name="ProfilePage"
-        component={ProfileScreen}
+        component={Profile}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (

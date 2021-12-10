@@ -1,21 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Text, TouchableOpacity, View, Picker, ScrollView } from "react-native";
 import { profileStyles } from "./profileStyles";
 import { loginScreen } from "./Login";
 import { editProfileScreen } from "./EditProfile";
 import { Avatar, Caption, Title, Switch } from "react-native-paper";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HelpButton from '../../components/HelpButton';
+import { LoginContext } from "../../Context/loginContext";
 
 const Stack = createNativeStackNavigator();
 
 export default function Profile() {
   return (
     <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="Login" component={loginScreen} />
+      <Stack.Screen
+        name="Login"
+        component={loginScreen}
+        options={{
+          headerTitle: () => (
+            <View style={profileStyles.header}>
+              <Text style={{ fontSize: 18 }}>Login</Text>
+              <HelpButton text='hello' />
+            </View>
+          ),
+          headerStyle: {
+            height: 75,
+          },
+        }}
+      />
       <Stack.Screen
         name="Profile"
         component={ProfileScreen}
         options={{
+          headerTitle: () => (
+            <View style={profileStyles.header}>
+              <Text style={{ fontSize: 18 }}>Profile</Text>
+              <HelpButton text='hello' />
+            </View>
+          ),
           headerStyle: {
             height: 75,
           },
@@ -25,6 +47,12 @@ export default function Profile() {
         name="Edit Profile"
         component={editProfileScreen}
         options={{
+          headerTitle: () => (
+            <View style={profileStyles.header}>
+              <Text style={{ fontSize: 18 }}>Edit Profile</Text>
+              <HelpButton text='hello' />
+            </View>
+          ),
           headerStyle: {
             height: 75,
           },
@@ -44,9 +72,13 @@ const ProfileScreen = ({ route, navigation }) => {
   const [isSwitchOn, setIsSwitchOn] = useState(true);
   const [image, setImage] = useState();
 
+  const { setIsLoggedIn, setUserId } = useContext(LoginContext);
+
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
 
   const onLogoutPressed = () => {
+    setIsLoggedIn(false);
+    setUserId(null);
     navigation.reset({
       index: 0,
       routes: [{ name: "Login" }],

@@ -1,8 +1,11 @@
-/*
- * This is from an open source project (found at https://github.com/michaeljstevens/react-native-stopwatch-timer/tree/252d08c49362b8c8926fe146409e133dedce0424)
+/**
+ * StopWatch component from an open source project 
+ * (https://github.com/michaeljstevens/react-native-stopwatch-timer/tree/252d08c49362b8c8926fe146409e133dedce0424)
+ * 
+ * modified by Peter Peng, Sean Ebenmelu Fall 2021
  */
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View } from "react-native";
 import PropTypes from "prop-types";
 import { formatTimeString } from "./utils";
 

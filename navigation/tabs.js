@@ -1,3 +1,8 @@
+/**
+ * Main navigation for the app (Bottom Tab Navigation)
+ * 
+ * @author: Peter Peng and Sean Ebenmelu, Fall 2021
+ */
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Image } from "react-native";
@@ -8,8 +13,6 @@ import Profile from "../pages/profile/Profile";
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
-  // const [isLoggedIn, setisLoggedIn] = useState(false);
-
   return (
     <Tab.Navigator
       screenOptions={{

@@ -1,3 +1,8 @@
+/**
+ * Stylings for home page stack
+ * 
+ * @author: Peter Peng and Sean Ebenmelu, Fall 2021
+ */
 import { StyleSheet } from 'react-native';
 
 export const homeStyles = StyleSheet.create({
@@ -36,38 +41,49 @@ export const homeStyles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
-
 	headerImage: {
 		width: 1500,
 		height: 1000,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
-
 	imageContainer: {
 		flex: 1,
 		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
-
 	modalContainer: {
 		padding: '10%',
 		backgroundColor: '#000000aa',
 		flex: 1,
 	},
-
 	modalToggle: {
 		padding: 10,
 		borderRadius: 10,
 		alignSelf: 'center',
 	},
-
 	header: {
 		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center'
+	},
+	boxBackground: {
+		backgroundColor: "#000000aa",
+		flex: 1,
+	},
+	box: {
+		backgroundColor: "#fff",
+		padding: 25,
+		top: '20%',
+		height: '50%',
+		borderRadius: 10,
+		flexDirection: 'row',
+		alignItems: 'center'
+	},
+	boxText: {
+		fontSize: 50,
 	}
 });
 

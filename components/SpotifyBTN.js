@@ -1,7 +1,12 @@
-import React, {useCallback} from 'react';
-import { Linking, TouchableOpacity, Image} from 'react-native';
+/**
+ * SpotifyButton component used for entertainment in the home page
+ * 
+ * @author: Sean Ebenmelu, Fall 2021
+ */
+import React, { useCallback } from 'react';
+import { Linking, TouchableOpacity, Image } from 'react-native';
 
-const SpotifyButton = ({ url, children}) => {
+const SpotifyButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
     const supported = await Linking.canOpenURL(url);
@@ -16,7 +21,7 @@ const SpotifyButton = ({ url, children}) => {
   }, [url]);
 
   return (
-  <TouchableOpacity title={children} onPress={handlePress} style={{width: 130, height: 70, backgroundColor: '#34BE82'}}>
+    <TouchableOpacity title={children} onPress={handlePress} style={{ width: 130, height: 70, backgroundColor: '#34BE82' }}>
       <Image
         source={require("../assets/spotify-brands.png")}
         resizeMode="contain"
@@ -25,8 +30,8 @@ const SpotifyButton = ({ url, children}) => {
           height: 70,
         }}
       />
-  </TouchableOpacity>
+    </TouchableOpacity>
   );
 };
 
-export {SpotifyButton}
+export { SpotifyButton }

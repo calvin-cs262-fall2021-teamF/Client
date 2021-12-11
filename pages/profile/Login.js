@@ -1,9 +1,16 @@
+/**
+ * Log In Screen for the profile stack
+ * Prompts user to enter username and password and verify with the database
+ * 
+ * @author: Peter Peng, Fall 2021
+ * 
+ */
 import React, { useState, useContext } from "react";
 import { profileStyles } from "./profileStyles";
 import { View, Image, TouchableOpacity, Text } from "react-native";
 import LoginInput from "../../components/LoginInput";
 import { ActivityIndicator } from "react-native-paper";
-import { LoginContext } from "../../Context/loginContext";
+import { LoginContext } from "../../context/loginContext";
 
 export const loginScreen = ({ navigation }) => {
   const { setIsLoggedIn, setUserId } = useContext(LoginContext);
@@ -12,6 +19,7 @@ export const loginScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
 
+  // verify entered username and password with the database entry
   const onLoginPressed = async () => {
     try {
       setLoading(true);

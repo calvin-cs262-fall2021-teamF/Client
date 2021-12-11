@@ -36,7 +36,13 @@ export default function Home({ navigation }) {
                   }}
                 />
               </TouchableOpacity>
-              <HelpButton text='hello' />
+              <HelpButton text={
+                '- To start brushing, start the timer by clicking on the START button \n' +
+                '- The entertainment options can be accessed once the timer is started \n' +
+                '- To stop brushing, stop the timer by clicking on the STOP button \n' +
+                '- To reset timer to its original form, click on the reset button \n' +
+                '- To view our About Page, click on the logo on the top left corner'
+              } />
             </View>
           ),
           headerStyle: {

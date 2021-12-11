@@ -23,7 +23,10 @@ export default function History() {
           headerTitle: () => (
             <View style={historyStyles.header}>
               <Text style={{ fontSize: 18 }}>History</Text>
-              <HelpButton text='hello' />
+              <HelpButton text={
+                'Logging in is required to see your brushing history. (To do so, go to the Profile page, the last tab on the bottom.) \n\n' +
+                'Once logged in, you can see your brushing history displayed here.'
+              } />
             </View>
           ),
           headerStyle: {

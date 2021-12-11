@@ -23,7 +23,7 @@ const HelpButton = ({ text }) => {
         />
       </TouchableOpacity>
       <Modal
-        animationType='none'
+        animationType='fade'
         transparent={true}
         visible={helpVisible}
       >
@@ -35,7 +35,7 @@ const HelpButton = ({ text }) => {
             onPress={() => setHelpVisible(false)}
             style={styles.modalToggle}
           >
-            <Text>OK</Text>
+            <Text style={{ fontWeight: 'bold' }}>OK</Text>
           </TouchableOpacity>
         </View>
       </Modal>
@@ -47,7 +47,7 @@ const HelpButton = ({ text }) => {
 const styles = StyleSheet.create({
   box: {
     backgroundColor: "#fff",
-    padding: 25,
+    padding: 20,
     top: '20%',
     height: '50%',
     borderRadius: 10,

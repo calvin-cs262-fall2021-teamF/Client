@@ -30,7 +30,12 @@ export default function Profile() {
           headerTitle: () => (
             <View style={profileStyles.header}>
               <Text style={{ fontSize: 18 }}>Login</Text>
-              <HelpButton text='hello' />
+              <HelpButton text={
+                'Log in here with your credentials.\n\n' +
+                'Sample login: \n' +
+                'username: j_doe@gmail.com \n' +
+                'password: johndoe'
+              } />
             </View>
           ),
           headerStyle: {
@@ -45,7 +50,14 @@ export default function Profile() {
           headerTitle: () => (
             <View style={profileStyles.header}>
               <Text style={{ fontSize: 18 }}>Profile</Text>
-              <HelpButton text='hello' />
+              <HelpButton text={
+                'Brushing Goals\n' +
+                '-  To change your brushing frequency/duration goal, click on the corresponding arrow and set your goal \n\n' +
+                'Edit Profile\n' +
+                '-  Edit your personal information\n\n' +
+                'Notifications\n' +
+                '-  Switch to toggle ON/OFF the notifications'
+              } />
             </View>
           ),
           headerStyle: {
@@ -60,7 +72,6 @@ export default function Profile() {
           headerTitle: () => (
             <View style={profileStyles.header}>
               <Text style={{ fontSize: 18 }}>Edit Profile</Text>
-              <HelpButton text='hello' />
             </View>
           ),
           headerStyle: {

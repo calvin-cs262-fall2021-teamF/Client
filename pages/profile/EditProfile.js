@@ -1,3 +1,9 @@
+/**
+ * Edit Profile page component
+ * This page lets users to update their user information
+ * 
+ * @author: Peter Peng, Fall 2021
+ */
 import React, { useState } from "react";
 import { profileStyles } from "./profileStyles";
 import { View, TouchableOpacity, Text, TextInput } from "react-native";
@@ -9,14 +15,13 @@ export const editProfileScreen = ({ route, navigation }) => {
   const { id, name, username, email } = route.params;
 
   const [imageUri, setImageUri] = React.useState(require("../../assets/fox.jpg"));
-
   const [newName, setNewName] = useState();
   const [newUsername, setNewUsername] = useState();
   const [newEmail, setNewEmail] = useState();
   const [newPassword, setNewPassword] = useState();
-
   const [isLoading, setLoading] = useState(false);
 
+  // change profile picture
   let openImagePickerAsync = async () => {
     let permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -31,6 +36,7 @@ export const editProfileScreen = ({ route, navigation }) => {
     setImageUri({ uri: pickerResult.uri });
   };
 
+  // update only the changed information in the database
   const submitChanges = async () => {
     try {
       setLoading(true);

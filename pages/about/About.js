@@ -1,3 +1,8 @@
+/**
+ * This is the about page for our app
+ * 
+ * @author: Peter Peng and Sean Ebenmelu and Bess Xu, Fall 2021
+ */
 import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { aboutStyles } from "./aboutStyles";

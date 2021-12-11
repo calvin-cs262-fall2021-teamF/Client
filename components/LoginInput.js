@@ -1,3 +1,9 @@
+/**
+ * Login Input component used in the login page
+ * 
+ * @author: Peter Peng, Fall 2021
+ * 
+ */
 import React from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 
@@ -15,6 +21,7 @@ const LoginInput = ({ value, setValue, placeholder, secureTextEntry }) => {
   );
 };
 
+// stylings for login input
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",

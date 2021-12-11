@@ -1,3 +1,8 @@
+/**
+ * Stylings for the about page
+ * 
+ * @author: Peter Peng and Sean Ebenmelu and Bess Xu, Fall 2021
+ */
 import { StyleSheet } from "react-native";
 
 export const aboutStyles = StyleSheet.create({

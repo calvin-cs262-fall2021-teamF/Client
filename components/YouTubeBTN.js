@@ -1,7 +1,12 @@
-import React, {useCallback} from 'react';
-import { Linking, TouchableOpacity, Image} from 'react-native';
+/**
+ * YouTubeButton component used for entertainment in the home page
+ * 
+ * @author: Sean Ebenmelu, Fall 2021
+ */
+import React, { useCallback } from 'react';
+import { Linking, TouchableOpacity, Image } from 'react-native';
 
-const YouTubeButton = ({ url, children}) => {
+const YouTubeButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
     const supported = await Linking.canOpenURL(url);
@@ -16,7 +21,7 @@ const YouTubeButton = ({ url, children}) => {
   }, [url]);
 
   return (
-  <TouchableOpacity title={children} onPress={handlePress} style={{width: 130, height: 70, backgroundColor: '#B91646'}}>
+    <TouchableOpacity title={children} onPress={handlePress} style={{ width: 130, height: 70, backgroundColor: '#B91646' }}>
       <Image
         source={require("../assets/youtube-brands.png")}
         resizeMode="contain"
@@ -25,8 +30,8 @@ const YouTubeButton = ({ url, children}) => {
           height: 70,
         }}
       />
-  </TouchableOpacity>
+    </TouchableOpacity>
   );
 };
 
-export {YouTubeButton}
+export { YouTubeButton }

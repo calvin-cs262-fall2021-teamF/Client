@@ -1,3 +1,9 @@
+/**
+ * Profile page (main) and navigation stack file
+ * This page contains user's information
+ * 
+ * @author: Peter Peng, Fall 2021
+ */
 import React, { useState, useEffect, useContext } from "react";
 import { Text, TouchableOpacity, View, Picker, ScrollView } from "react-native";
 import { profileStyles } from "./profileStyles";
@@ -6,10 +12,14 @@ import { editProfileScreen } from "./EditProfile";
 import { Avatar, Caption, Title, Switch } from "react-native-paper";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HelpButton from '../../components/HelpButton';
-import { LoginContext } from "../../Context/loginContext";
+import { LoginContext } from "../../context/loginContext";
 
 const Stack = createNativeStackNavigator();
 
+/**
+ * navigation stack used for the profile page
+ * containing Login, Profile, and EditProfile page
+ */
 export default function Profile() {
   return (
     <Stack.Navigator initialRouteName="Login">
@@ -62,7 +72,15 @@ export default function Profile() {
   );
 }
 
+/**
+ * This is the main profile page screen, showing user's information
+ * 
+ * @param {route, navigation}  
+ * @returns ProfileScreen
+ */
 const ProfileScreen = ({ route, navigation }) => {
+  const { setIsLoggedIn, setUserId } = useContext(LoginContext);
+
   const [id, setId] = useState();
   const [name, setName] = useState();
   const [username, setUsername] = useState();
@@ -71,8 +89,6 @@ const ProfileScreen = ({ route, navigation }) => {
   const [selectedDuration, setSelectedDuration] = useState();
   const [isSwitchOn, setIsSwitchOn] = useState(true);
   const [image, setImage] = useState();
-
-  const { setIsLoggedIn, setUserId } = useContext(LoginContext);
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
 
@@ -143,8 +159,7 @@ const ProfileScreen = ({ route, navigation }) => {
             style={profileStyles.settingPicker}
             onValueChange={async (itemValue, itemIndex) => {
               try {
-                const response = await fetch('https://toothflex-service.herokuapp.com/users/' + route.params.id + '/time/' + itemValue, { method: 'PUT' });
-                const json = await response.json();
+                await fetch('https://toothflex-service.herokuapp.com/users/' + route.params.id + '/time/' + itemValue, { method: 'PUT' });
               } catch (error) {
                 alert("Failed to update! Please try again.");
               } finally {

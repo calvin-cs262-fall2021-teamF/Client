@@ -1,3 +1,9 @@
+/**
+ * Help Button component that's used in every page for user help
+ * 
+ * @author: Peter Peng, Fall 2021
+ * 
+ */
 import React, { useState } from "react";
 import { View, StyleSheet, Image, TouchableOpacity, Modal, Text } from "react-native";
 
@@ -37,6 +43,7 @@ const HelpButton = ({ text }) => {
   );
 };
 
+// stylings for the help button
 const styles = StyleSheet.create({
   box: {
     backgroundColor: "#fff",

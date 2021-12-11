@@ -1,3 +1,8 @@
+/**
+ * Styling page for the profile stack
+ * 
+ * @author: Peter Peng, Fall 2021
+ */
 import { StyleSheet } from "react-native";
 
 export const profileStyles = StyleSheet.create({

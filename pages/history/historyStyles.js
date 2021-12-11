@@ -1,3 +1,8 @@
+/**
+ * Stylings for the history page
+ * 
+ * @author: Peter Peng and Sean Ebenmelu, Fall 2021
+ */
 import { StyleSheet } from "react-native";
 
 export const historyStyles = StyleSheet.create({

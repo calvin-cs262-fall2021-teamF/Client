@@ -1,3 +1,7 @@
+/**
+ * Utility method used with the StopWatch component 
+ * (https://github.com/michaeljstevens/react-native-stopwatch-timer/tree/252d08c49362b8c8926fe146409e133dedce0424)
+ */
 function formatTimeString(time, showMsecs) {
   let msecs = time % 1000;
 

@@ -1,0 +1,26 @@
+Online Help
+
+Home Page 
+-	To start brushing, start the timer by clicking on the START button
+-	The entertainment options can be accessed once the timer is started
+-	To stop brushing, stop the timer by clicking on the STOP button
+-	To reset timer to its original form, click on the reset button
+-	To view our About Page, click on the logo on the top left corner  
+
+History Page
+-	To see your brushing logs, sign in using the following credentials on the profile page 
+•	Username: johndoe@gmail.com
+•	Password: johndoe
+
+Profile Page
+Brushing Goals
+-	To change your brushing frequency, click on the frequency <container> and choose your option
+-	To change your brushing duration, click on the duration <container> and choose your option
+Edit Profile
+-	To change profile picture, click on the change picture 
+-	To change name, click on the name <container> and type in your new name
+-	To change username, click on the username <container> and type in your new username
+-	To change password, click on the password <container> and type in your new password
+-	To save your changes, click Submit
+Notifications
+-	To disable notifications, use the toggle

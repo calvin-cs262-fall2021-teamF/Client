@@ -64,7 +64,7 @@ const HistoryScreen = () => {
   })
 
   return (
-    <ScrollView style={historyStyles.container}>
+    <ScrollView style={historyStyles.main}>
       <Text style={historyStyles.headerText}> Brushing History </Text>
       <Text style={historyStyles.subtitleText}> "You don't have to brush all your teeth, just the ones you want to keep" </Text>
       {isLoggedIn ?
@@ -72,7 +72,7 @@ const HistoryScreen = () => {
           isLoading ? <ActivityIndicator /> :
             <FlatList
               data={data}
-              keyExtractor={({ id }, index) => id}
+              keyExtractor={({ id }, index) => id.toString()}
               renderItem={({ item }) => (
                 <View style={historyStyles.logBox}>
                   <Text style={{ fontSize: 18 }}>{String(item.brushdate).slice(0, 10)}  {String(item.brushdate).slice(11, 16)}</Text>

@@ -120,7 +120,9 @@ export const profileStyles = StyleSheet.create({
     marginRight: -20,
   },
   editProfileContainer: {
-    margin: 20,
+    backgroundColor: '#99DDCC',
+    padding: 20,
+    height: '100%',
   },
   editAvatar: {
     alignItems: "center",

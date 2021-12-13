@@ -72,7 +72,7 @@ const HistoryScreen = () => {
           isLoading ? <ActivityIndicator /> :
             <FlatList
               data={data}
-              keyExtractor={({ id }, index) => id}
+              keyExtractor={({ id }, index) => id.toString()}
               renderItem={({ item }) => (
                 <View style={historyStyles.logBox}>
                   <Text style={{ fontSize: 18 }}>{String(item.brushdate).slice(0, 10)}  {String(item.brushdate).slice(11, 16)}</Text>

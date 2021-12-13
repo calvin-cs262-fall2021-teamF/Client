@@ -129,10 +129,17 @@ const ProfileScreen = ({ route, navigation }) => {
   }, []);
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: '#99DDCC'}}>
       <View style={profileStyles.userInfoSection}>
         <View style={profileStyles.userInfo}>
+        <TouchableOpacity onPress={() => navigation.navigate("Edit Profile", {
+          id: id,
+          name: name,
+          username: username,
+          email: email
+        })}>
           <Avatar.Image source={image} size={100} />
+        </TouchableOpacity>
           <View style={profileStyles.info}>
             <Title style={profileStyles.username}>{name}</Title>
             <Caption style={profileStyles.userId}>{username}</Caption>

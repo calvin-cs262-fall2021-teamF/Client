@@ -6,8 +6,9 @@
 import { StyleSheet } from "react-native";
 
 export const historyStyles = StyleSheet.create({
-  container: {
-    margin: 20,
+  main: {
+    backgroundColor: '#99DDCC',
+    padding: 20,
   },
 
   box: {

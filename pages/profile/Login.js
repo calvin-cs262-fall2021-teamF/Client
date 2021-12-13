@@ -5,7 +5,7 @@
  * @author: Peter Peng, Fall 2021
  * 
  */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { profileStyles } from "./profileStyles";
 import { View, Image, TouchableOpacity, Text } from "react-native";
 import LoginInput from "../../components/LoginInput";
